@@ -1,0 +1,116 @@
+/* src/styles/animations.css */
+
+/* Animation personnalisée pour l'avion */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* src/styles/animations.css */
+
+/* Animation pour le texte avec effet de fondu et de montée */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Application de l'animation fade-in et slide-up */
+.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+/* Animation de glissement vers le haut pour le texte */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+/* Animation de fondu pour le formulaire */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Animation de glissement pour les sections */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation de glissement horizontal (pour l'image) */
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Appliquer l'animation de fade-in pour les paragraphes */
+.animate-fade-in {
+  animation: fade-in 1.5s ease-in-out forwards;
+}
+
+/* Appliquer l'animation de slide-right */
+.animate-slide-right {
+  animation: slide-right 1s ease-out forwards;
+}
+/* Appliquer l'animation */
+.animate-slide-up {
+  animation: slide-up 1s ease-out forwards;
+}
+
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeft 1s ease-out forwards;
+}
