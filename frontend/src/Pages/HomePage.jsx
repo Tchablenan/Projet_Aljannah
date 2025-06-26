@@ -1,8 +1,8 @@
 // src/pages/HomePage.js
 import React, { useState } from 'react';
 import heroPlane from '../assets/hero.png';  // Image de l'avion
-import { jetsData } from '../data/jetsData';
-import JetCard from '../Components/jetCard';
+
+
 import { Link } from 'react-router-dom';
 import '../styles/animations.css';  // Assurez-vous d'avoir ce fichier pour les animations
 import AboutSection from '../Components/AboutSection';  // Section "About Us"
@@ -39,16 +39,20 @@ const HomePage = () => {
   return (
     <div className="bg-gray-100 min-h-screen ">
       {/* Section d'introduction avec dégradé de bleu */}
+ 
       <section className="relative h-screen bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white flex flex-col md:flex-row items-center justify-center md:justify-between px-6 md:px-20">
         <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
         {/* Contenu centré avec texte et boutons */}
         <div className="relative z-10 flex flex-col items-center text-center md:text-left md:items-start">
-          <h3 className="text-lg text-yellow-500 font-semibold mb-2 animate-slide-up">Welcome To Aljannah Address!</h3>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 animate-slide-up">
+        <div className="mb-46"></div>
+          <h3 className="text-lg text-yellow-500 font-semibold mb-2 animate-slide-up md:text-2xl">
+            Welcome To Aljannah Address!
+          </h3>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight  animate-slide-up">
             Luxury Experience<br />With Our Private Jet
           </h1>
-          <p className="text-gray-200 mb-8 animate-slide-up">
+          <p className="text-gray-200 mb-8 animate-slide-up text-sm md:text-lg">
             Enjoy full discretion, flexibility, and luxury. No queues. No delays. Just prestige air travel tailored to your lifestyle.
           </p>
 
@@ -63,14 +67,13 @@ const HomePage = () => {
         </div>
 
         {/* Image avion à droite */}
- {/* Image avion à droite */}
-          <div className="mt-10 md:mt-0">
-            <img
-              src={heroPlane}
-              alt="Private Jet"
-              className="w-[500px] animate-float"
-            />
-          </div>
+        <div className="mt-10 md:mt-0 w-full md:w-1/2">
+          <img
+            src={heroPlane}
+            alt="Private Jet"
+            className="max-w-full h-auto animate-float"
+          />
+        </div>
       </section>
 
       {/* Section "About Us" */}
