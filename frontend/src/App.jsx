@@ -7,6 +7,8 @@ import AdminDashboard from './Pages/AdminDashboard';
 // src/index.js (ou src/App.js)
 import 'font-awesome/css/font-awesome.min.css';
 import JetsAvailableSection from './Components/jetsAvailableSection'; // La page des jets
+import Booking from './Pages/Booking'; // La page de réservation
+import JetDetailPage from './Pages/JetDetailPage'; 
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/jets" element={<JetsAvailableSection />} /> {/* La page des jets */}
+        <Route path="/booking" element={<Booking />} /> {/* La page de réservation */}
+        <Route path="/jet/:id" element={<JetDetailPage />} /> 
       </Routes>
     </Router>
   );

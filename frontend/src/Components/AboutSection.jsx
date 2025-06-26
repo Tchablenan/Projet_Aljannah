@@ -28,7 +28,7 @@ const AboutSection = () => {
             <img
               src={plane} // Ajoutez ici l'image pertinente
               alt="About Us"
-              className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-1000 ease-in-out hover:scale-105"
+              className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-1000 ease-in-out hover:scale-105 "
             />
           </div>
         </div>
