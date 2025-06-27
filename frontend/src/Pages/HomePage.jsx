@@ -51,7 +51,7 @@ const HomePage = () => {
       <img
         src={heroPlane}
         alt="Private Jet"
-        className="w-full max-w-[320px] sm:max-w-[400px] h-auto animate-float"
+        className="w-full max-w-[320px] sm:max-w-[450px] h-auto animate-float"
       />
     </div>
 
@@ -65,7 +65,7 @@ const HomePage = () => {
         Luxury Experience<br className="hidden sm:block" /> With Our Private Jet
       </h1>
 
-      <p className="text-gray-200 text-sm sm:text-base leading-relaxed animate-fade-up max-w-md mx-auto md:mx-0">
+      <p className="text-gray-200 text-justify text-sm sm:text-base leading-relaxed animate-fade-up max-w-md mx-auto md:mx-0">
         Enjoy full discretion, flexibility, and luxury. No queues. No delays.
         Just prestige air travel tailored to your lifestyle. Every detail is
         curated to provide you with a smooth, secure, and sophisticated journey.
