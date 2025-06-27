@@ -44,17 +44,20 @@ const HomePage = () => {
   {/* Overlay sombre */}
   <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-  {/* Bloc texte */}
-  <div className="relative z-10 flex flex-col items-center text-center md:text-left md:items-start w-full md:w-1/2 space-y-4 max-w-xl">
+  {/* Texte & boutons */}
+  <div className="relative z-10 flex flex-col items-center text-center md:text-left md:items-start w-full md:w-1/2 space-y-6 max-w-xl">
     <h3 className="text-sm sm:text-base md:text-lg text-yellow-500 font-semibold animate-slide-up">
       Welcome To Aljannah Address!
     </h3>
+
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight animate-slide-up">
       Luxury Experience<br className="hidden sm:block" /> With Our Private Jet
     </h1>
-    <p className="text-gray-200 text-sm sm:text-base animate-slide-up">
+
+    <p className="text-gray-200 text-justify text-sm sm:text-base animate-fade-up leading-relaxed">
       Enjoy full discretion, flexibility, and luxury. No queues. No delays.
-      Just prestige air travel tailored to your lifestyle.
+      Just prestige air travel tailored to your lifestyle. Every detail is
+      curated to provide you with a smooth, secure, and sophisticated journey.
     </p>
 
     <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up w-full sm:w-auto">
@@ -72,10 +75,11 @@ const HomePage = () => {
     <img
       src={heroPlane}
       alt="Private Jet"
-      className="w-full max-w-[300px] sm:max-w-[450px] h-auto animate-float"
+      className="w-full max-w-[300px] sm:max-w-[350px] h-auto animate-float"
     />
   </div>
 </section>
+
 
 
       {/* Section "About Us" */}
