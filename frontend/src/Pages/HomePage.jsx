@@ -40,7 +40,7 @@ const HomePage = () => {
     <div className="bg-gray-100 min-h-screen ">
       {/* Section d'introduction avec dégradé de bleu */}
  
-      <section className="relative h-screen bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white flex flex-col md:flex-row items-center justify-center md:justify-between  ">
+      <section className="relative min-h-screen bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white flex flex-col md:flex-row items-center justify-center md:justify-between px-6 md:px-20">
         <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
         {/* Contenu centré avec texte et boutons */}
@@ -71,7 +71,7 @@ const HomePage = () => {
           <img
             src={heroPlane}
             alt="Private Jet"
-            className="max-w-full h-auto animate-float"
+            className="w-full max-w-[300px] h-auto mx-auto md:mx-0 animate-float mb-10 md:mb-0"
           />
         </div>
       </section>
