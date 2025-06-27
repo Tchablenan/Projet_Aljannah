@@ -40,7 +40,7 @@ const HomePage = () => {
     <div className="bg-gray-100 min-h-screen ">
       {/* Section d'introduction avec dégradé de bleu */}
  
-      <section className="relative h-screen bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white flex flex-col md:flex-row items-center justify-center md:justify-between px-6 md:px-20">
+      <section className="relative h-screen bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white flex flex-col md:flex-row items-center justify-center md:justify-between px-2 md:px-20">
         <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
         {/* Contenu centré avec texte et boutons */}
