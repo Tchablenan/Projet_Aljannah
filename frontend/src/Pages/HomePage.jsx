@@ -40,45 +40,49 @@ const HomePage = () => {
     <div className="bg-gray-100 min-h-screen ">
       {/* Section d'introduction avec dégradé de bleu */}
  
-<section className="relative min-h-screen bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white flex flex-col md:flex-row items-center justify-center md:justify-between px-4 sm:px-6 md:px-20 py-12">
+<section className="relative bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white px-4 sm:px-6 md:px-20 py-25">
   {/* Overlay sombre */}
   <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-  {/* Texte & boutons */}
-  <div className="relative z-10 flex flex-col items-center text-center md:text-left md:items-start w-full md:w-1/2 space-y-6 max-w-xl">
-    <h3 className="text-sm sm:text-base md:text-lg text-yellow-500 font-semibold animate-slide-up">
-      Welcome To Aljannah Address!
-    </h3>
+  <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10 max-w-7xl mx-auto">
+    
+    {/* Image avion */}
+    <div className="w-full md:w-1/2 flex justify-center">
+      <img
+        src={heroPlane}
+        alt="Private Jet"
+        className="w-full max-w-[320px] sm:max-w-[400px] h-auto animate-float"
+      />
+    </div>
 
-    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight animate-slide-up">
-      Luxury Experience<br className="hidden sm:block" /> With Our Private Jet
-    </h1>
+    {/* Contenu texte */}
+    <div className="text-center   md:text-left w-full md:w-1/2 space-y-6">
+      <h1 className="text-base sm:text-lg text-yellow-500 font-semibold animate-slide-up">
+        Welcome To Aljannah Address!
+      </h1>
 
-    <p className="text-gray-200 text-justify text-sm sm:text-base animate-fade-up leading-relaxed">
-      Enjoy full discretion, flexibility, and luxury. No queues. No delays.
-      Just prestige air travel tailored to your lifestyle. Every detail is
-      curated to provide you with a smooth, secure, and sophisticated journey.
-    </p>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug animate-slide-up">
+        Luxury Experience<br className="hidden sm:block" /> With Our Private Jet
+      </h1>
 
-    <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up w-full sm:w-auto">
-      <button className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition duration-200 w-full sm:w-auto">
-        Contact Us
-      </button>
-      <button className="border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition duration-200 w-full sm:w-auto">
-        About Us
-      </button>
+      <p className="text-gray-200 text-sm sm:text-base leading-relaxed animate-fade-up max-w-md mx-auto md:mx-0">
+        Enjoy full discretion, flexibility, and luxury. No queues. No delays.
+        Just prestige air travel tailored to your lifestyle. Every detail is
+        curated to provide you with a smooth, secure, and sophisticated journey.
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-4 sm:justify-start justify-center">
+        <button className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition duration-200">
+          Contact Us
+        </button>
+        <button className="border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition duration-200">
+          About Us
+        </button>
+      </div>
     </div>
   </div>
-
-  {/* Image avion */}
-  <div className="relative z-10 mt-10 md:mt-0 w-full md:w-1/2 flex justify-center">
-    <img
-      src={heroPlane}
-      alt="Private Jet"
-      className="w-full max-w-[300px] sm:max-w-[350px] h-auto animate-float"
-    />
-  </div>
 </section>
+
 
 
 

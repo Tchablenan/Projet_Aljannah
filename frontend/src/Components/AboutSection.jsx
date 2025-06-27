@@ -10,8 +10,8 @@ const AboutSection = () => {
         </h1>
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Texte à gauche avec animation */}
-          <div className="md:w-1/2 text-center md:text-left animate-slide-up">
-            <p className="text-lg md:text-xl mb-6 text-gray-200 leading-relaxed animate-fade-in">
+          <div className="md:w-1/2 text-center text-justify md:text-left animate-slide-up">
+            <p className="text-lg md:text-xl mb-6  text-gray-200 leading-relaxed animate-fade-in">
               At **Aljannah Address**, we offer an unparalleled luxury travel experience with our private jets. Whether you're looking for a quick getaway or need to transport clients in style, we provide tailored services that meet your exact needs. With exclusive access to premium aircraft, we ensure every journey is smooth, comfortable, and unforgettable.
             </p>
             <p className="text-lg md:text-xl mb-6 text-gray-200 leading-relaxed animate-fade-in">

@@ -16,16 +16,16 @@ const WhyChooseUs = () => {
           <div className="bg-gradient-to-r from-[#0B2B3BFF] to-[#255e6d] p-8 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
             <img src={planeInteriorImage} alt="Interior of private jet" className="w-full h-40 object-cover rounded-lg mb-4" />
             <h3 className="text-xl font-semibold text-yellow-500 mb-4">Security & Privacy</h3>
-            <p className="text-lg text-gray-100">
+            <p className="text-lg text-justify text-gray-100">
               Your safety and privacy are our top priorities. All our flights ensure confidentiality, with fully private cabins and dedicated security measures.
             </p>
           </div>
 
           {/* Avantage 2: Flexible Scheduling */}
-          <div className="bg-gradient-to-r from-[#0B2B3BFF] to-[#255e6d] text-white py-16 p-8 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-r from-[#0B2B3BFF] to-[#255e6d]  text-white py-16 p-8 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
             <img src={scheduleImage} alt="Interior of private jet" className="w-full h-40 object-cover rounded-lg mb-4" />
             <h3 className="text-xl font-semibold text-yellow-500 mb-4">Flexible Scheduling</h3>
-            <p className="text-lg text-gray-100">
+            <p className="text-lg  text-gray-100">
               We provide fully flexible scheduling. You decide when and where you want to fly, without the constraints of commercial airlines.
             </p>
           </div>
@@ -34,7 +34,7 @@ const WhyChooseUs = () => {
           <div className="bg-gradient-to-r from-[#0B2B3BFF] to-[#255e6d] p-8 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
             <img src={qualityImage} alt="Interior of private jet" className="w-full h-40 object-cover rounded-lg mb-4" />
             <h3 className="text-xl font-semibold text-yellow-500 mb-4">Unmatched Quality</h3>
-            <p className="text-lg text-gray-100">
+            <p className="text-lg text-justify text-gray-100">
               We offer a level of service and luxury that goes beyond your expectations. From gourmet catering to personalized flight experiences.
             </p>
           </div>
@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
           <div className="bg-gradient-to-r from-[#0B2B3BFF] to-[#255e6d] p-8 rounded-lg shadow-lg hover:scale-105 transition-all duration-300">
             <img src={customerServiceImage} alt="Interior of private jet" className="w-full h-40 object-cover rounded-lg mb-4" />
             <h3 className="text-xl font-semibold text-yellow-500 mb-4">Customer-Centric Approach</h3>
-            <p className="text-lg text-gray-100">
+            <p className="text-lg  text-gray-100">
               Our team is dedicated to providing personalized service tailored to your needs. We are here to ensure every part of your journey exceeds expectations.
             </p>
           </div>
