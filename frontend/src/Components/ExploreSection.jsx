@@ -19,7 +19,7 @@ const ExploreSection = () => {
         {/* Texte + bouton */}
         <div className="w-full md:w-1/2 text-center md:text-left">
           <h2 className="text-4xl font-bold text-yellow-500 mb-4">Explore Our Offer</h2>
-          <p className="text-lg text-gray-100 mb-6">
+          <p className="text-lg text-justify  text-gray-100 mb-6">
             Discover the elegance, comfort and prestige of our private jet fleet. A personalized air travel experience just a click away.
           </p>
           <a

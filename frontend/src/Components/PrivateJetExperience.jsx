@@ -19,10 +19,10 @@ const PrivateJetExperience = () => {
         {/* Texte avec description */}
         <div className="w-full md:w-1/2 text-center md:text-left">
           <h2 className="text-4xl font-bold text-yellow-500 mb-4">The Private Jet Experience</h2>
-          <p className="text-lg text-gray-300 mb-6">
+          <p className="text-lg text-justify text-gray-300 mb-6">
             Step into a world of comfort, luxury, and exclusivity with our private jet experience. Enjoy the flexibility to choose your departure time, travel in complete privacy, and savor every moment in our fully-equipped aircraft.
           </p>
-          <p className="text-lg text-gray-300 mb-6">
+          <p className="text-lg text-justify text-gray-300 mb-6">
             Our jets offer a level of comfort and style that's unmatched in commercial aviation. From personalized catering to a peaceful and serene cabin atmosphere, we cater to your every need for an unforgettable journey.
           </p>
           <a
