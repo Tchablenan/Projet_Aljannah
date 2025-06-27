@@ -57,7 +57,7 @@ const HomePage = () => {
 
     {/* Contenu texte */}
     <div className="text-center   md:text-left w-full md:w-1/2 space-y-6">
-      <h1 className="text-base sm:text-lg text-yellow-500 font-semibold animate-slide-up">
+      <h1 className="text-xl sm:text-2xl text-yellow-500 font-semibold animate-slide-up">
         Welcome To Aljannah Address!
       </h1>
 
