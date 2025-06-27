@@ -45,7 +45,7 @@ const HomePage = () => {
 
         {/* Contenu centré avec texte et boutons */}
         <div className="relative z-10 flex flex-col items-center text-center md:text-left md:items-start">
-        <div className="mb-46"></div>
+        <div className="mb-16"></div>
           <h3 className="text-lg text-yellow-500 font-semibold mb-2 animate-slide-up md:text-2xl">
             Welcome To Aljannah Address!
           </h3>
