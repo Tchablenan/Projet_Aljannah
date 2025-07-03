@@ -1,7 +1,7 @@
-// src/pages/BookingPage.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Utilisation de React Router pour la navigation
 import { FaPlane, FaCalendarAlt } from "react-icons/fa";
+import moment from "moment"; // Import de moment.js
 
 const BookingPage = () => {
   const navigate = useNavigate();
@@ -20,33 +20,50 @@ const BookingPage = () => {
   // Fonction pour gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ici vous pouvez envoyer ces informations à un backend ou les afficher dans la console
-    console.log({
+
+    // Formater les dates au format YYYY-MM-DD
+    const formattedArrivalDate = moment(arrivalDate, "MM/DD/YYYY").format("YYYY-MM-DD");
+    const formattedDepartureDate = moment(departureDate, "MM/DD/YYYY").format("YYYY-MM-DD");
+
+    const reservationData = {
       firstName,
       lastName,
       email,
       departureLocation,
       arrivalLocation,
       planeType,
-      arrivalDate,
-      departureDate,
+      arrivalDate: formattedArrivalDate,  // Utilisation de la date formatée
+      departureDate: formattedDepartureDate,  // Utilisation de la date formatée
       passengers,
-    });
+    };
 
-    // Rediriger l'utilisateur vers la page de confirmation
-    navigate("/confirmation");
+    console.log(reservationData);  // Vérification des données avant envoi
+
+    // Envoyer les données à l'API
+    fetch("http://127.0.0.1:8000/api/reservations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reservationData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Reservation Successful", data);
+        navigate("/confirmation");
+      })
+      .catch((error) => {
+        console.error("There was an error creating the reservation: ", error);
+      });
   };
 
   return (
     <div className="bg-gray-100 min-h-screen py-16">
       <section className="bg-gradient-to-r from-[#02171FFF] to-[#255e6d] text-white py-16">
         <div className="container mx-auto px-6 md:px-20 flex items-center justify-between gap-12">
-          {/* Icône de gauche (avion) */}
           <div className="hidden md:block w-1/5">
             <FaPlane className="text-6xl mx-auto text-yellow-500" />
           </div>
-
-          {/* Titre et description */}
           <div className="text-center md:text-left md:w-3/5">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 animate-slide-up">
               Booking Your Private Jet
@@ -57,8 +74,6 @@ const BookingPage = () => {
               like no other.
             </p>
           </div>
-
-          {/* Icône de droite (calendrier) */}
           <div className="hidden md:block w-1/5">
             <FaCalendarAlt className="text-6xl mx-auto text-yellow-500" />
           </div>
@@ -201,9 +216,6 @@ const BookingPage = () => {
                   placeholder="MM / DD / YY"
                   className="w-full px-4 py-2 bg-gray-700 text-white rounded-md"
                 />
-                <div className="absolute right-3 top-3 text-gray-400">
-                  <i className="far fa-calendar-alt"></i>
-                </div>
               </div>
             </div>
 
@@ -224,9 +236,6 @@ const BookingPage = () => {
                   placeholder="MM / DD / YY"
                   className="w-full px-4 py-2 bg-gray-700 text-white rounded-md"
                 />
-                <div className="absolute right-3 top-3 text-gray-400">
-                  <i className="far fa-calendar-alt"></i>
-                </div>
               </div>
             </div>
 
