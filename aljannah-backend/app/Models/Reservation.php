@@ -9,7 +9,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
-        protected $fillable = [
+    protected $fillable = [
         'first_name',
         'last_name',
         'email',
@@ -20,5 +20,11 @@ class Reservation extends Model
         'departure_date',
         'passengers',
         'status',
+          'jet_id',
     ];
+    public function jet()
+    {
+        return $this->belongsTo(Jet::class);
+    }
+
 }

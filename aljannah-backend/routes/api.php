@@ -3,7 +3,7 @@
 use App\Http\Controllers\ReservationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\JetApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +33,10 @@ Route::middleware('api')->group(function () {
 
     // Route pour supprimer une réservation
     Route::delete('reservations/{id}', [ReservationController::class, 'destroy']);
+
+    Route::get('/jets', [JetApiController::class, 'index']);
+    Route::get('/jets/{id}', [JetApiController::class, 'show']);
+
 });
 
 

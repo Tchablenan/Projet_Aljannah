@@ -29,8 +29,8 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
                 <!-- Dashboard -->
-                <div data-kt-menu-trigger="click" class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}" class="menu-link">
+                <div  class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}" class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                         <span class="menu-icon">
                             <i class="fas fa-tachometer-alt"></i>
                         </span>
@@ -39,8 +39,8 @@
                 </div>
 
                 <!-- Reservations -->
-                <div data-kt-menu-trigger="click" class="menu-item {{ request()->routeIs('reservations.index') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                <div  class="menu-item ">
+                    <a href="{{ route('reservations.index') }}" class="menu-link {{ request()->routeIs('reservations.index') ? 'active' : '' }}">
                         <span class="menu-icon">
                             <i class="fas fa-calendar-check"></i>
                         </span>

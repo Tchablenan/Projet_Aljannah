@@ -1,95 +1,122 @@
-import React from 'react'
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import React from 'react';
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import logo from '../assets/ALJANNAH JET OFFICIAL LOGO.png'; // renomme ton fichier pour éviter les espaces
+import { useLocation } from 'react-router-dom';
+
+
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'About', href: '#about', current: false },
+
   { name: 'Booking', href: '/booking', current: false },
   { name: 'Catalog', href: '/jets', current: false },
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Header() {
+  const location = useLocation();
   return (
-    <Disclosure as="nav" className=" bg-gradient-to-r from-[#02171FFF] to-[#255e6d] fixed top-0 w-full z-50">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button */}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
-              
-            </DisclosureButton>
-          </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
-              <img
-                alt="Your Company"
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto"
-              />
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'rounded-md px-3 py-2 text-sm font-medium',
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+    <Disclosure
+      as="nav"
+      className="bg-gradient-to-r from-[#5D7D88FF] to-[#0D2E36FF] fixed top-0 w-full z-50 shadow-md"
+    >
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex h-16 items-center justify-between">
+              {/* Logo */}
+              <div className="flex-shrink-0 flex items-center">
+                <a href="/">
+                  <img
+                    src={logo}
+                    alt="Aljannah Jet"
+                    className="h-10 sm:h-35 w-auto object-contain animate__animated animate__fadeInDown"
+                  />
+                </a>
+              </div>
+
+              {/* Desktop nav */}
+              <div className="hidden sm:flex sm:items-center sm:justify-center sm:space-x-6 w-full">
+{navigation.map((item) => {
+  const isActive = location.pathname === item.href || location.hash === item.href;
+
+  return (
+    <a
+      key={item.name}
+      href={item.href}
+      className={
+        isActive
+          ? 'text-yellow-400 underline underline-offset-4'
+          : 'text-white hover:text-yellow-400'
+      }
+    >
+      {item.name}
+    </a>
+  );
+})}
+
+              </div>
+
+              {/* Contact button */}
+              <div className="hidden sm:block">
+                <a
+                  href="/contact"
+                  className="bg-yellow-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-400 transition duration-200 ripple-click"
+                >
+                  Contact Us
+                </a>
+              </div>
+
+              {/* Mobile menu button */}
+              <div className="sm:hidden">
+                <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-yellow-400 focus:outline-none">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XMarkIcon className="size-6" />
+                  ) : (
+                    <Bars3Icon className="size-6" />
+                  )}
+                </DisclosureButton>
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-           
 
-            {/* Profile dropdown */}
-            <Menu as="div" className="relative ml-3">
-              <div>
-              <button className="bg-yellow-500 text-black px-3 py-2 rounded-full font-semibold hover:bg-yellow-400 transition duration-200">
-                Contact Us
-              </button>
-              </div>
-              
-            </Menu>
-          </div>
-        </div>
-      </div>
+          {/* Mobile menu */}
+          <DisclosurePanel className="sm:hidden bg-[#02171FFF] px-2 pt-2 pb-3 text-center space-y-1">
+            {navigation.map((item) => (
+              <DisclosureButton
+                key={item.name}
+                as="a"
+                href={item.href}
+                aria-current={item.current ? 'page' : undefined}
+                className={classNames(
+                  item.current
+                    ? 'text-yellow-400 underline underline-offset-4'
+                    : 'text-white hover:text-yellow-400',
+                  'block px-3 py-2 text-base font-medium transition duration-200'
+                )}
+              >
+                {item.name}
+              </DisclosureButton>
+            ))}
 
-      {/* Mobile menu */}
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pt-2 pb-3">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium',
-              )}
+            <a
+              href="/contact"
+              className="block bg-yellow-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-400 transition duration-200 ripple-click mt-3 mx-auto w-fit"
             >
-              {item.name}
-            </DisclosureButton>
-          ))}
-  
-        </div>
-      </DisclosurePanel>
+              Contact Us
+            </a>
+          </DisclosurePanel>
+        </>
+      )}
     </Disclosure>
-  )
+  );
 }

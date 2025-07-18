@@ -9,8 +9,15 @@ import 'font-awesome/css/font-awesome.min.css';
 import JetsAvailableSection from './Components/jetsAvailableSection'; // La page des jets
 import Booking from './Pages/Booking'; // La page de réservation
 import JetDetailPage from './Pages/JetDetailPage'; 
+import Confirmation from './Pages/Confirmation';
+
+import "aos/dist/aos.css";
+import Footer from './Components/Footer';
 
 const App = () => {
+
+
+
   return (
     <Router>
       <Header />
@@ -19,8 +26,11 @@ const App = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/jets" element={<JetsAvailableSection />} /> {/* La page des jets */}
         <Route path="/booking" element={<Booking />} /> {/* La page de réservation */}
-        <Route path="/jet/:id" element={<JetDetailPage />} /> 
+        <Route path="/jet/:id" element={<JetDetailPage />} />
+        <Route path="/confirmation" element={<Confirmation />} />
+ 
       </Routes>
+      <Footer />
     </Router>
   );
 };

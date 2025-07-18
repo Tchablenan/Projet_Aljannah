@@ -43,30 +43,19 @@
                     <!--begin::Menu-->
                     <div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch"
                         id="#kt_header_menu" data-kt-menu="true">
-                        <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                            class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                            <a href="{{ route('dashboard') }}" class="menu-link py-3">
+                        <div  data-kt-menu-placement="bottom-start"
+                            class="menu-item ">
+                            <a href="{{ route('dashboard') }}" class="menu-link py-3 {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                                 <span class="menu-title">Dashboard</span>
                             </a>
                         </div>
-                        <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                            class="menu-item {{ request()->routeIs('reservations.index') ? 'active' : '' }}">
-                            <a href="#" class="menu-link py-3">
+                        <div  data-kt-menu-placement="bottom-start"
+                            class="menu-item ">
+                            <a href="{{ route('reservations.index') }}" class="menu-link py-3 {{ request()->routeIs('reservations.index') ? 'active' : '' }}">
                                 <span class="menu-title">Réservations</span>
                             </a>
                         </div>
-                        <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                            class="menu-item {{ request()->routeIs('clients.index') ? 'active' : '' }}">
-                            <a href="#" class="menu-link py-3">
-                                <span class="menu-title">Clients</span>
-                            </a>
-                        </div>
-                        <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                            class="menu-item {{ request()->routeIs('users.index') ? 'active' : '' }}">
-                            <a href="#" class="menu-link py-3">
-                                <span class="menu-title">Utilisateurs</span>
-                            </a>
-                        </div>
+
                     </div>
                     <!--end::Menu-->
                 </div>
@@ -76,31 +65,7 @@
 
             <!--begin::Toolbar wrapper-->
             <div class="d-flex align-items-stretch flex-shrink-0">
-                <!--begin::Search-->
-                <div class="d-flex align-items-stretch ms-1 ms-lg-3">
-                    <div id="kt_header_search" class="d-flex align-items-stretch" data-kt-search-keypress="true"
-                        data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="menu"
-                        data-kt-menu-trigger="auto" data-kt-menu-overflow="false" data-kt-menu-permanent="true"
-                        data-kt-menu-placement="bottom-end">
-                        <div class="d-flex align-items-center" data-kt-search-element="toggle"
-                            id="kt_header_search_toggle">
-                            <div
-                                class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px">
-                                <span class="svg-icon svg-icon-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2"
-                                            rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                                        <path
-                                            d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-                                            fill="black" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end::Search-->
+
 
                 <!--begin::User menu-->
                 <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
