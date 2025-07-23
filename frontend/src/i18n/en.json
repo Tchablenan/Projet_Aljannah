@@ -1,0 +1,27 @@
+{
+  "header": {
+    "home": "Home",
+
+    "booking": "Booking",
+    "catalog": "Catalog",
+    "contact": "Contact Us"
+  },
+"intro": {
+  "welcome": "Welcome To Aljannah Address!",
+  "title": "Luxury Experience",
+  "subtitle": "With Our Private Jet",
+  "description": "Enjoy full discretion, flexibility, and luxury. No queues. No delays. Just prestige air travel tailored to your lifestyle. Every detail is curated to provide you with a smooth, secure, and sophisticated journey."
+},
+
+"about": {
+  "title": "About Us",
+  "paragraph1": "At Aljannah Address, we offer an unparalleled luxury travel experience with our private jets...",
+  "paragraph2": "We believe that time is the most valuable asset, and our services are designed to give you more of it...",
+  "paragraph3": "Experience luxury redefined with Aljannah Address—your gateway to exclusive private air travel...",
+  "button1": "Discover Our Fleet",
+  "button2": "Meet the Team",
+  "image_alt": "Private Jet"
+}
+
+
+}

@@ -1,49 +1,78 @@
-import React from 'react';
-import plane from '../assets/plane.png';
-import 'animate.css';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import imgIntro from '../assets/sourire.jpg';
+import imgComfort from '../assets/qualite.jpg';
+import imgFleet from '../assets/vacation.png';
 
 const AboutSection = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <section
-      className="bg-gradient-to-r from-[#02171FFF] to-[#184C58FF] text-white py-20 overflow-hidden"
       id="about"
+      className="bg-gradient-to-r from-[#02171FFF] to-[#184C58FF] text-white py-20"
     >
-      <div className="container mx-auto px-6 md:px-20">
-        <h1 className="text-5xl font-extrabold text-yellow-500 text-center mb-12 animate__animated animate__fadeInDown animate__delay-1s">
-          About Us
-        </h1>
+      <div className="max-w-7xl mx-auto px-6 md:px-20 space-y-16">
+        {/* Bloc 1 */}
+        <div className="grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
+          <div>
+            <h2 className="text-4xl font-bold text-yellow-400 mb-4">
+              {t('about.title')}
+            </h2>
+            <p className="text-gray-200 text-lg leading-relaxed">
+              {t('about.paragraph1')}
+            </p>
+          </div>
+          <img
+            src={imgIntro}
+            alt={t('about.image_alt1')}
+            className="rounded-lg shadow-lg object-cover w-full h-auto transition-transform duration-700 hover:scale-105"
+            data-aos="zoom-in"
+          />
+        </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 animate__animated animate__fadeInUp animate__delay-2s">
-          {/* Texte à gauche */}
-          <div className="md:w-1/2 space-y-6 text-center md:text-left">
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed animate__animated animate__fadeInLeft animate__delay-2s">
-              At <strong>Aljannah Address</strong>, we offer an unparalleled luxury travel experience with our private jets. Whether you're looking for a quick getaway or need to transport clients in style, we provide tailored services that meet your exact needs.
+        {/* Bloc 2 */}
+        <div className="grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
+          <img
+            src={imgComfort}
+            alt={t('about.image_alt2')}
+            className="rounded-lg shadow-lg object-cover w-full h-auto transition-transform duration-700 hover:scale-105"
+            data-aos="zoom-in"
+          />
+          <div>
+            <p className="text-gray-200 text-lg leading-relaxed">
+              {t('about.paragraph2')}
             </p>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed animate__animated animate__fadeInLeft animate__delay-2-5s">
-              We believe that time is the most valuable asset, and our services are designed to give you more of it. Skip the long security lines, avoid the delays, and enjoy a truly personalized flight experience.
-            </p>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed animate__animated animate__fadeInLeft animate__delay-3s">
-              Experience luxury redefined with <strong>Aljannah Address</strong>—your gateway to exclusive private air travel. Our fleet is equipped with the latest amenities to ensure comfort, efficiency, and privacy, so you can travel on your own terms.
-            </p>
+          </div>
+        </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4 animate__animated animate__fadeInUp animate__delay-3-5s">
-              <button className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 hover:scale-105 transition duration-300">
-                Discover Our Fleet
+        {/* Bloc 3 */}
+        <div className="grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
+          <div>
+            <p className="text-gray-200 text-lg leading-relaxed">
+              {t('about.paragraph3')}
+            </p>
+            <div className="flex gap-4 mt-6" data-aos="fade-up">
+              <button className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition duration-300">
+                {t('about.button1')}
               </button>
-              <button className="border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black hover:scale-105 transition duration-300">
-                Meet the Team
+              <button className="border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition duration-300">
+                {t('about.button2')}
               </button>
             </div>
           </div>
-
-          {/* Image à droite */}
-          <div className="md:w-1/2 animate__animated animate__zoomIn animate__delay-2s">
-            <img
-              src={plane}
-              alt="About Us"
-              className="w-full max-w-md rounded-lg shadow-lg transform transition duration-1000 hover:scale-105"
-            />
-          </div>
+          <img
+            src={imgFleet}
+            alt={t('about.image_alt3')}
+            className="rounded-lg shadow-lg object-cover w-full h-auto transition-transform duration-700 hover:scale-105"
+            data-aos="zoom-in"
+          />
         </div>
       </div>
     </section>

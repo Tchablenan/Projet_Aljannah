@@ -1,28 +1,29 @@
-import React from 'react';
+import React from "react";
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-} from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import logo from '../assets/ALJANNAH JET OFFICIAL LOGO.png'; // renomme ton fichier pour éviter les espaces
-import { useLocation } from 'react-router-dom';
-
-
+} from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import logo from "../assets/ALJANNAH JET OFFICIAL LOGO.png"; // renomme ton fichier pour éviter les espaces
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
-
-  { name: 'Booking', href: '/booking', current: false },
-  { name: 'Catalog', href: '/jets', current: false },
+  { key: "home", href: "/" },
+  { key: "booking", href: "/booking" },
+  { key: "catalog", href: "/jets" },
 ];
 
+
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Header() {
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+
   return (
     <Disclosure
       as="nav"
@@ -45,24 +46,26 @@ export default function Header() {
 
               {/* Desktop nav */}
               <div className="hidden sm:flex sm:items-center sm:justify-center sm:space-x-6 w-full">
-{navigation.map((item) => {
-  const isActive = location.pathname === item.href || location.hash === item.href;
+                {navigation.map((item) => {
+                  const isActive =
+                    location.pathname === item.href ||
+                    location.hash === item.href;
 
-  return (
-    <a
-      key={item.name}
-      href={item.href}
-      className={
-        isActive
-          ? 'text-yellow-400 underline underline-offset-4'
-          : 'text-white hover:text-yellow-400'
-      }
-    >
-      {item.name}
-    </a>
-  );
-})}
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={
+                        isActive
+                          ? "text-yellow-400 underline underline-offset-4"
+                          : "text-white hover:text-yellow-400"
+                      }
+                    >
+                      {t(`header.${item.key}`)}
 
+                    </a>
+                  );
+                })}
               </div>
 
               {/* Contact button */}
@@ -71,8 +74,23 @@ export default function Header() {
                   href="/contact"
                   className="bg-yellow-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-400 transition duration-200 ripple-click"
                 >
-                  Contact Us
+                {t('header.contact')}
+
                 </a>
+              </div>
+              <div className="flex gap-2 ml-4">
+                <button
+                  onClick={() => i18n.changeLanguage("en")}
+                  className="text-white hover:text-yellow-400"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => i18n.changeLanguage("fr")}
+                  className="text-white hover:text-yellow-400"
+                >
+                  FR
+                </button>
               </div>
 
               {/* Mobile menu button */}
@@ -96,12 +114,12 @@ export default function Header() {
                 key={item.name}
                 as="a"
                 href={item.href}
-                aria-current={item.current ? 'page' : undefined}
+                aria-current={item.current ? "page" : undefined}
                 className={classNames(
                   item.current
-                    ? 'text-yellow-400 underline underline-offset-4'
-                    : 'text-white hover:text-yellow-400',
-                  'block px-3 py-2 text-base font-medium transition duration-200'
+                    ? "text-yellow-400 underline underline-offset-4"
+                    : "text-white hover:text-yellow-400",
+                  "block px-3 py-2 text-base font-medium transition duration-200"
                 )}
               >
                 {item.name}

@@ -1,0 +1,26 @@
+{
+  "header": {
+    "home": "Accueil",
+    "booking": "Réservation",
+    "catalog": "Catalogue",
+    "contact": "Contact"
+  },
+"intro": {
+  "welcome": "Bienvenue chez Aljannah Address !",
+  "title": "Expérience de Luxe",
+  "subtitle": "Avec Nos Jets Privés",
+  "description": "Profitez de la discrétion, de la flexibilité et du luxe absolu. Pas de files d’attente, pas de retards. Juste un voyage aérien prestigieux adapté à votre style de vie. Chaque détail est conçu pour vous offrir un trajet fluide, sûr et raffiné."
+},
+
+"about": {
+  "title": "À propos de nous",
+  "paragraph1": "Chez Aljannah Address, nous offrons une expérience de voyage en jet privé inégalée...",
+  "paragraph2": "Nous croyons que le temps est la ressource la plus précieuse, et nos services sont conçus pour vous en offrir davantage...",
+  "paragraph3": "Découvrez le luxe réinventé avec Aljannah Address — votre porte d’entrée vers l’aviation privée exclusive...",
+  "button1": "Découvrez notre flotte",
+  "button2": "Rencontrez notre équipe",
+  "image_alt": "Jet privé"
+}
+
+
+}
