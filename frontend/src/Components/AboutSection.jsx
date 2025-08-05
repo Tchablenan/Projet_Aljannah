@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import imgIntro from '../assets/sourire.jpg';
 import imgComfort from '../assets/qualite.jpg';
-import imgFleet from '../assets/vacation.png';
+import imgFleet from '../assets/jet.jpg';
 
 const AboutSection = () => {
   const { t } = useTranslation();

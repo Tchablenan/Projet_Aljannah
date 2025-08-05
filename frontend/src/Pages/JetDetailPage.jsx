@@ -8,7 +8,9 @@ import {
   FaMoneyBillWave,
   FaArrowLeft,
 } from "react-icons/fa";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "animate.css";
 
 const JetDetails = () => {
   const { id } = useParams();
@@ -18,10 +20,11 @@ const JetDetails = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+
     axios
-      .get(`http://localhost:8000/api/jets/${id}`) // adapte si tu utilises VITE_API_URL
+      .get(`http://localhost:8000/api/jets/${id}`)
       .then((res) => {
-        console.log("Jet reçu :", res.data);
         setJet(res.data);
         setLoading(false);
       })
@@ -40,11 +43,14 @@ const JetDetails = () => {
     );
   if (error) return <p className="text-center text-red-500 py-10">{error}</p>;
   if (!jet) return null;
+
   const imageUrl = jet?.image_url ?? "/default-jet.jpg";
+  const otherImages = Array.isArray(jet?.other_images) ? jet.other_images : [];
 
   return (
     <div className="bg-gradient-to-r from-[#07171DFF] to-[#255e6d] min-h-screen text-white px-6 md:px-20 py-16">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto space-y-12">
+        {/* Retour */}
         <div className="mb-6 flex items-center gap-2 text-blue-400 hover:text-blue-300">
           <FaArrowLeft />
           <Link to="/" className="text-sm underline">
@@ -52,7 +58,8 @@ const JetDetails = () => {
           </Link>
         </div>
 
-        <div className="bg-[#142f39] p-6 rounded-lg shadow-xl">
+        {/* Détails principaux */}
+        <div className="bg-[#142f39] p-6 rounded-lg shadow-xl" data-aos="fade-up">
           <img
             src={imageUrl}
             alt={jet.nom ?? "Jet"}
@@ -71,12 +78,33 @@ const JetDetails = () => {
           </div>
           <div className="flex items-center gap-2 mb-4 text-gray-100">
             <FaMoneyBillWave className="text-green-500" />
-            <span>Price: {jet.prix} </span>
+            <span>Prix : ${jet.prix}</span>
           </div>
           <div className="text-gray-200 leading-relaxed">
             <h4 className="font-semibold mb-2">Description :</h4>
             <p>{jet.description ?? "—"}</p>
           </div>
+
+          {/* Section des images supplémentaires */}
+          {otherImages.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-2xl font-semibold text-yellow-500 mb-4">
+                Autres images du jet
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {otherImages.map((img, index) => (
+                  <img
+                    key={index}
+                    src={`http://localhost:8000/storage/${img}`}
+                    alt={`Other Image ${index + 1}`}
+                    className="w-full h-32 sm:h-48 object-cover rounded-lg shadow"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Bouton Réservation */}
           <div className="text-center mt-8 animate__animated animate__fadeInUp">
             <button
               onClick={() => setShowModal(true)}

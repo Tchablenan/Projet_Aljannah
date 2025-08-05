@@ -7,21 +7,39 @@
     "contact": "Contact Us"
   },
 "intro": {
-  "welcome": "Welcome To Aljannah Address!",
+  "welcome": "Welcome To Aljannah jet!",
   "title": "Luxury Experience",
   "subtitle": "With Our Private Jet",
-  "description": "Enjoy full discretion, flexibility, and luxury. No queues. No delays. Just prestige air travel tailored to your lifestyle. Every detail is curated to provide you with a smooth, secure, and sophisticated journey."
+  "description": "Enjoy full discretion, flexibility, and luxury. Every detail is curated to provide you with a smooth, secure, and sophisticated journey."
 },
 
 "about": {
   "title": "About Us",
-  "paragraph1": "At Aljannah Address, we offer an unparalleled luxury travel experience with our private jets...",
+  "paragraph1": "At Aljannah Jet, we offer an unparalleled luxury travel experience with our private jets...",
   "paragraph2": "We believe that time is the most valuable asset, and our services are designed to give you more of it...",
   "paragraph3": "Experience luxury redefined with Aljannah Address—your gateway to exclusive private air travel...",
   "button1": "Discover Our Fleet",
   "button2": "Meet the Team",
   "image_alt": "Private Jet"
+},
+
+"explore": {
+  "title": "Explore Our Offer",
+  "description": "Discover the elegance, comfort, and prestige of our private jet fleet. A personalized air travel experience is just a click away.",
+  "benefits": {
+    "booking": "Instant Booking",
+    "privacy": "Full Privacy",
+    "flexibility": "Flexible Scheduling",
+    "service": "Business-Class Service"
+  },
+  "button": "Browse Jets",
+  "image_alt_main": "Private Jet Silhouette",
+  "image_alt_interior": "Luxurious Jet Interior",
+  "image_alt_dining": "Gourmet Dining Experience",
+  "image_alt_amenities": "Premium Jet Amenities"
 }
+
+
 
 
 }

@@ -5,7 +5,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import logo from "../assets/ALJANNAH JET OFFICIAL LOGO.png"; // renomme ton fichier pour éviter les espaces
+import logo from "../assets/ALJANNAH JET OFFICIAL LOGO c.jpg"; // renomme ton fichier pour éviter les espaces
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -32,14 +32,14 @@ export default function Header() {
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 items-center justify-between">
+            <div className="flex h-30 items-center justify-between">
               {/* Logo */}
               <div className="flex-shrink-0 flex items-center">
                 <a href="/">
                   <img
                     src={logo}
                     alt="Aljannah Jet"
-                    className="h-10 sm:h-35 w-auto object-contain animate__animated animate__fadeInDown"
+                    className="h-10 sm:h-30 w-auto object-contain animate__animated animate__fadeInDown"
                   />
                 </a>
               </div>

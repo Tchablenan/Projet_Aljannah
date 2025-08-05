@@ -9,7 +9,7 @@
   "welcome": "Bienvenue chez Aljannah Address !",
   "title": "Expérience de Luxe",
   "subtitle": "Avec Nos Jets Privés",
-  "description": "Profitez de la discrétion, de la flexibilité et du luxe absolu. Pas de files d’attente, pas de retards. Juste un voyage aérien prestigieux adapté à votre style de vie. Chaque détail est conçu pour vous offrir un trajet fluide, sûr et raffiné."
+  "description": "Profitez de la discrétion, de la flexibilité et du luxe absolu. Chaque détail est conçu pour vous offrir un trajet fluide, sûr et raffiné."
 },
 
 "about": {
@@ -20,7 +20,25 @@
   "button1": "Découvrez notre flotte",
   "button2": "Rencontrez notre équipe",
   "image_alt": "Jet privé"
+},
+
+"explore": {
+  "title": "Découvrez Nos Offres",
+  "description": "Découvrez l'élégance, le confort et le prestige de notre flotte de jets privés. Une expérience de voyage personnalisée vous attend.",
+  "benefits": {
+    "booking": "Réservation instantanée",
+    "privacy": "Confidentialité totale",
+    "flexibility": "Horaires flexibles",
+    "service": "Service classe affaires"
+  },
+  "button": "Voir les jets",
+  "image_alt_main": "Silhouette de jet privé",
+  "image_alt_interior": "Intérieur luxueux de jet",
+  "image_alt_dining": "Expérience gastronomique à bord",
+  "image_alt_amenities": "Services premium à bord"
 }
 
 
+
 }
+

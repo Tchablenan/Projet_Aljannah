@@ -29,14 +29,27 @@ class JetController extends Controller
             'capacite' => 'required|integer|min:1',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:8048', // 8MB max
-             'prix' => 'required|numeric|min:0',
+            'prix' => 'required|numeric|min:0',
+            'images' => 'nullable|array', // Champ pour les images supplémentaires
+            'images.*' => 'image|max:8048', // Assurer que chaque image est valide
         ]);
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('jets', 'public');
         }
+        // Traitement des images supplémentaires
+        if ($request->hasFile('images')) {
+            $images = [];
+            foreach ($request->file('images') as $image) {
+                $images[] = $image->store('jets', 'public');
+            }
+            //dd($images);
+            $validated['images'] = json_encode($images);
+        }
 
         Jet::create($validated);
+
+        //dd($jet);
 
         return redirect()->route('jets.index')->with('success', 'Jet créé avec succès.');
     }
@@ -60,7 +73,7 @@ class JetController extends Controller
             'capacite' => 'required|integer|min:1',
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:8048',
-          'prix' => 'sometimes|required|numeric|min:0',
+            'prix' => 'sometimes|required|numeric|min:0',
 
         ]);
 
