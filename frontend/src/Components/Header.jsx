@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <Disclosure
       as="nav"
-      className="bg-gradient-to-r from-[#5D7D88FF] to-[#0D2E36FF] fixed top-0 w-full z-50 shadow-md"
+      className="bg-gradient-to-r from-[#154453FF] to-[#0D2E36FF] fixed top-0 w-full z-50 shadow-md"
     >
       {({ open }) => (
         <>
