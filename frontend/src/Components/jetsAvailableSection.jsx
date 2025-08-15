@@ -2,10 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import JetCard from './jetCard';
 import { FaPlane, FaSuitcase } from 'react-icons/fa';
-import axios from 'axios';
-
-// Configuration de l'API pour Vite
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+import { getJets } from '../services/jetApiService';
 
 const JetsAvailableSection = () => {
   const [jets, setJets] = useState([]);
@@ -15,30 +12,19 @@ const JetsAvailableSection = () => {
   useEffect(() => {
     const fetchJets = async () => {
       try {
-        console.log('Fetching jets from:', `${API_BASE_URL}/jets`); // Pour debug
-        
-        const response = await axios.get(`${API_BASE_URL}/jets`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          timeout: 10000, // 10 secondes de timeout
-        });
-        
-        setJets(response.data);
+        const jetsData = await getJets();
+        setJets(jetsData);
         setLoading(false);
       } catch (error) {
         console.error("Erreur lors du chargement des jets :", error);
         
         // Gestion d'erreurs plus détaillée
-        if (error.code === 'ECONNABORTED') {
-          setError('Timeout: La requête a pris trop de temps');
-        } else if (error.response) {
-          setError(`Erreur serveur: ${error.response.status}`);
-        } else if (error.request) {
+        if (error.message.includes('Failed to fetch')) {
           setError('Erreur de connexion au serveur');
+        } else if (error.status === 404) {
+          setError('Endpoint non trouvé');
         } else {
-          setError('Une erreur est survenue');
+          setError(error.message || 'Une erreur est survenue');
         }
         
         setLoading(false);
