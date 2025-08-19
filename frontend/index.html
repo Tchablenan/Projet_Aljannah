@@ -1,5 +1,16 @@
 <!doctype html>
 <html lang="en">
+  <style>
+  /* Prévenir le flash de contenu non stylisé */
+  html:not([data-theme]) body { 
+    visibility: hidden; 
+  }
+</style>
+
+<script>
+  // Marquer comme prêt dès que possible
+  document.documentElement.setAttribute('data-theme', 'loaded');
+</script>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
