@@ -22,7 +22,7 @@ const AboutSection = () => {
         {/* Bloc 1 */}
         <div className="grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
           <div>
-            <h2 className="text-4xl font-bold text-yellow-400 mb-4">
+            <h2 className="text-4xl font-bold text-gradient-aljannah  mb-4">
               {t('about.title')}
             </h2>
             <p className="text-gray-200 text-lg leading-relaxed">
@@ -59,7 +59,7 @@ const AboutSection = () => {
               {t('about.paragraph3')}
             </p>
             <div className="flex gap-4 mt-6" data-aos="fade-up">
-              <button className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition duration-300">
+              <button className="btn-gradient-aljannah   btn-elastic:hover  text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition duration-300">
                 {t('about.button1')}
               </button>
               <button className="border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition duration-300">

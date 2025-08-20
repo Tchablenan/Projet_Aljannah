@@ -57,7 +57,7 @@ export default function Header() {
                       href={item.href}
                       className={
                         isActive
-                          ? "text-yellow-400 underline underline-offset-4"
+                          ? "text-gradient-aljannah underline underline-offset-4"
                           : "text-white hover:text-yellow-400"
                       }
                     >
@@ -72,7 +72,7 @@ export default function Header() {
               <div className="hidden sm:block">
                 <a
                   href="/contact"
-                  className="bg-yellow-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-400 transition duration-200 ripple-click"
+                  className="btn-gradient-aljannah text-black px-4 py-2 rounded-full font-semibold hover:bg-yellow-400 transition duration-200 ripple-click"
                 >
                 {t('header.contact')}
 

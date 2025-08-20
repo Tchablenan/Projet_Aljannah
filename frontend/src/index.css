@@ -39,3 +39,641 @@
 .ripple-click:active {
   animation: ripple 0.6s linear;
 }
+/* Dans votre fichier CSS */
+.text-gradient-gold {
+  background: linear-gradient(to right, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ou pour correspondre exactement à votre image */
+.text-gradient-aljannah {
+  background: linear-gradient(to right, #fbbf24, #b45309);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* Bouton avec la couleur exacte de votre logo */
+
+/* Bouton avec la couleur exacte de votre logo */
+.btn-gradient-aljannah {
+  background: linear-gradient(45deg, #fbbf24, #b45309, #e2aa1d, #b45309);
+  background-size: 300% 300%;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 4s ease infinite;
+}
+
+.btn-gradient-aljannah::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-gradient-aljannah:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.5);
+  animation: bounce 0.6s ease;
+}
+
+.btn-gradient-aljannah:hover::before {
+  left: 100%;
+}
+
+.btn-gradient-aljannah:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Boutons avec bordure dégradée (fond transparent) */
+.btn-outline-gradient-gold {
+  background: white;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px 22px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.btn-outline-gradient-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #f59e0b, #d97706, #f59e0b, #d97706);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.btn-outline-gradient-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.2), transparent);
+  z-index: -1;
+  transition: left 0.5s;
+}
+
+.btn-outline-gradient-gold:hover {
+  background: linear-gradient(45deg, #f59e0b, #d97706);
+  color: white;
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+}
+
+.btn-outline-gradient-gold:hover::after {
+  left: 100%;
+}
+
+/* Bouton outline avec couleur Aljannah */
+.btn-outline-gradient-aljannah {
+  background: white;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px 22px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gradient-aljannah::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(to right, #fbbf24, #b45309);
+}
+
+.btn-outline-gradient-aljannah:hover {
+  background: linear-gradient(to right, #fbbf24, #b45309);
+  color: white;
+}
+
+/* Boutons avec texte dégradé (fond transparent) */
+.btn-text-gradient-gold {
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(45deg, #f59e0b, #d97706, #f59e0b, #d97706);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+  position: relative;
+  animation: gradientShift 3s ease infinite;
+}
+
+.btn-text-gradient-gold:hover {
+  transform: scale(1.05) rotate(-1deg);
+  animation: textGlow 0.6s ease-in-out;
+}
+
+.btn-text-gradient-aljannah {
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(45deg, #e9af1c, #b45309, #fbbf24, #b45309);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+  position: relative;
+  animation: gradientShift 4s ease infinite;
+}
+
+.btn-text-gradient-aljannah:hover {
+  transform: scale(1.08) rotate(1deg);
+  animation: textBounce 0.8s ease;
+}
+
+/* Boutons avec effet glassmorphism */
+.btn-glass-gradient-gold {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 151, 6, 0.2));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #d97706;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glass-gradient-gold::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(245, 158, 11, 0.1), transparent, rgba(217, 151, 6, 0.1), transparent);
+  animation: rotate 4s linear infinite;
+  z-index: -1;
+}
+
+.btn-glass-gradient-gold:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(217, 151, 6, 0.4));
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.3);
+  border-color: rgba(245, 158, 11, 0.6);
+}
+
+/* Tailles des boutons */
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.btn-md {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+.btn-xl {
+  padding: 20px 40px;
+  font-size: 20px;
+}
+
+/* ====== ANIMATIONS KEYFRAMES ====== */
+
+/* Animation de dégradé qui se déplace */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 35px rgba(245, 158, 11, 0.6);
+  }
+}
+
+/* Animation de rebond */
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(-3px) scale(1.05);
+  }
+  40% {
+    transform: translateY(-5px) scale(1.08);
+  }
+  80% {
+    transform: translateY(-4px) scale(1.06);
+  }
+}
+
+/* Animation pour le texte avec effet de brillance */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 30px rgba(217, 151, 6, 0.4);
+  }
+}
+
+/* Animation de rebond pour le texte */
+@keyframes textBounce {
+  0%, 20%, 60%, 100% {
+    transform: scale(1.08) rotate(1deg);
+  }
+  40% {
+    transform: scale(1.12) rotate(-1deg);
+  }
+  80% {
+    transform: scale(1.10) rotate(0.5deg);
+  }
+}
+
+/* Animation de rotation pour l'effet glassmorphism */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation de secousse */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+/* Animation de zoom élastique */
+@keyframes elasticScale {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.1); }
+  60% { transform: scale(0.95); }
+  100% { transform: scale(1.05); }
+}
+
+/* Classes d'animation supplémentaires */
+.btn-shake:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+.btn-elastic:hover {
+  animation: elasticScale 0.6s ease-out;
+}
+/* ====== CLASSES D'ANIMATION POUR TEXTES ====== */
+
+/* Texte qui danse au hover */
+.text-dance:hover {
+  animation: textDance 0.8s ease-in-out;
+}
+
+/* Texte avec zoom élastique */
+.text-elastic:hover {
+  animation: textElastic 0.6s ease-out;
+}
+
+/* Texte qui secoue */
+.text-shake:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Combinaisons spéciales */
+.text-gradient-aljannah.text-dance:hover {
+  animation: textDance 0.8s ease-in-out, textGlow 1s ease-in-out;
+}
+
+.text-gradient-gold.text-elastic:hover {
+  animation: textElastic 0.6s ease-out, textShine 1s ease-in-out;
+}
+/* ====== ORBE FLOTTANTE DORÉE AVEC ANIMATIONS ====== */
+
+/* Orbe de base avec la couleur Aljannah */
+.floating-orb-aljannah {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14rem; /* 56 = w-56 */
+  height: 14rem; /* 56 = h-56 */
+  background: radial-gradient(circle, #fbbf24, #f59e0b, #d97706);
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(2rem);
+  animation: floatAndGlow 6s ease-in-out infinite, slowRotate 20s linear infinite;
+  z-index: -1;
+}
+
+/* Orbe avec couleur or plus intense */
+.floating-orb-gold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14rem;
+  height: 14rem;
+  background: radial-gradient(circle, #facc15, #eab308, #ca8a04);
+  border-radius: 50%;
+  opacity: 0.12;
+  filter: blur(2rem);
+  animation: floatAndPulse 8s ease-in-out infinite, drift 15s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Orbe avec effet de gradient animé */
+.floating-orb-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14rem;
+  height: 14rem;
+  background: conic-gradient(from 0deg, #fbbf24, #f59e0b, #d97706, #b45309, #fbbf24);
+  border-radius: 50%;
+  opacity: 0.18;
+  filter: blur(2.5rem);
+  animation: floatAndSpin 12s ease-in-out infinite, breathe 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Orbe avec effet de morphing */
+.floating-orb-morph {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14rem;
+  height: 14rem;
+  background: radial-gradient(ellipse at 30% 30%, #fbbf24, #f59e0b, #d97706, #b45309);
+  border-radius: 50%;
+  opacity: 0.2;
+  filter: blur(1.8rem);
+  animation: morphFloat 10s ease-in-out infinite, colorShift 8s ease infinite;
+  z-index: -1;
+}
+
+/* Orbe avec effet de particules */
+.floating-orb-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14rem;
+  height: 14rem;
+  background: 
+    radial-gradient(circle at 20% 20%, #fbbf24 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, #f59e0b 0%, transparent 50%),
+    radial-gradient(circle at 40% 70%, #d97706 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, #b45309 0%, transparent 50%);
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(2rem);
+  animation: particleFloat 7s ease-in-out infinite, gentleRotate 25s linear infinite;
+  z-index: -1;
+}
+
+/* ====== ANIMATIONS KEYFRAMES ====== */
+
+/* Animation de flottement avec glow */
+@keyframes floatAndGlow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.15;
+    filter: blur(2rem);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px) scale(1.05);
+    opacity: 0.2;
+    filter: blur(1.8rem);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-8px) scale(1.1);
+    opacity: 0.25;
+    filter: blur(1.5rem);
+  }
+  75% {
+    transform: translateY(-15px) translateX(3px) scale(1.02);
+    opacity: 0.18;
+    filter: blur(1.9rem);
+  }
+}
+
+/* Animation de flottement avec pulsation */
+@keyframes floatAndPulse {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.12;
+  }
+  33% {
+    transform: translateY(-8px) scale(1.15);
+    opacity: 0.18;
+  }
+  66% {
+    transform: translateY(-3px) scale(0.95);
+    opacity: 0.15;
+  }
+}
+
+/* Animation de dérive lente */
+@keyframes drift {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(20px, -15px); }
+  50% { transform: translate(-10px, -25px); }
+  75% { transform: translate(-20px, -5px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* Animation de flottement avec rotation */
+@keyframes floatAndSpin {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.18;
+  }
+  25% {
+    transform: translateY(-12px) rotate(90deg) scale(1.08);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translateY(-8px) rotate(180deg) scale(1.12);
+    opacity: 0.25;
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg) scale(1.05);
+    opacity: 0.20;
+  }
+}
+
+/* Animation de respiration */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    filter: blur(2.5rem);
+  }
+  50% {
+    transform: scale(1.2);
+    filter: blur(2rem);
+  }
+}
+
+/* Animation de morphing */
+@keyframes morphFloat {
+  0%, 100% {
+    transform: translateY(0px) scaleX(1) scaleY(1);
+    border-radius: 50%;
+  }
+  25% {
+    transform: translateY(-10px) scaleX(1.1) scaleY(0.9);
+    border-radius: 60% 40% 30% 70%;
+  }
+  50% {
+    transform: translateY(-5px) scaleX(0.9) scaleY(1.1);
+    border-radius: 30% 70% 60% 40%;
+  }
+  75% {
+    transform: translateY(-12px) scaleX(1.05) scaleY(0.95);
+    border-radius: 70% 30% 40% 60%;
+  }
+}
+
+/* Animation de changement de couleur */
+@keyframes colorShift {
+  0% { 
+    background: radial-gradient(ellipse at 30% 30%, #fbbf24, #f59e0b, #d97706, #b45309);
+  }
+  25% { 
+    background: radial-gradient(ellipse at 70% 20%, #f59e0b, #d97706, #b45309, #fbbf24);
+  }
+  50% { 
+    background: radial-gradient(ellipse at 80% 70%, #d97706, #b45309, #fbbf24, #f59e0b);
+  }
+  75% { 
+    background: radial-gradient(ellipse at 20% 80%, #b45309, #fbbf24, #f59e0b, #d97706);
+  }
+  100% { 
+    background: radial-gradient(ellipse at 30% 30%, #fbbf24, #f59e0b, #d97706, #b45309);
+  }
+}
+
+/* Animation de particules flottantes */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.25;
+  }
+  20% {
+    transform: translateY(-8px) translateX(3px);
+    opacity: 0.3;
+  }
+  40% {
+    transform: translateY(-12px) translateX(-5px);
+    opacity: 0.28;
+  }
+  60% {
+    transform: translateY(-6px) translateX(8px);
+    opacity: 0.32;
+  }
+  80% {
+    transform: translateY(-10px) translateX(-3px);
+    opacity: 0.27;
+  }
+}
+
+/* Rotation lente */
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Rotation douce */
+@keyframes gentleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ====== CLASSES UTILITAIRES ====== */
+
+/* Tailles alternatives */
+.orb-sm {
+  width: 8rem;
+  height: 8rem;
+}
+
+.orb-md {
+  width: 12rem;
+  height: 12rem;
+}
+
+.orb-lg {
+  width: 16rem;
+  height: 16rem;
+}
+
+.orb-xl {
+  width: 20rem;
+  height: 20rem;
+}
+
+/* Positionnements */
+.orb-top-right {
+  top: 0;
+  right: 0;
+}
+
+.orb-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.orb-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.orb-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

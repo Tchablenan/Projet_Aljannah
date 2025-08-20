@@ -80,6 +80,27 @@
     "customer": "Service client souriant"
   }
 },
+"booking": {
+  "header": {
+    "title": "Réservation",
+    "description": "Sécurisez votre expérience en jet privé avec nous. Choisissez votre jet préféré, planifiez votre vol et profitez d’un voyage fluide comme nul autre."
+  },
+  "form": {
+    "title": "✈️ Réserver votre Jet Privé",
+    "selectedJet": "Jet sélectionné : ID #{{id}}",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "departureLocation": "Lieu de départ",
+    "arrivalLocation": "Lieu d’arrivée",
+    "arrivalDate": "Date d’arrivée",
+    "departureDate": "Date de départ",
+    "submit": "Valider la Réservation",
+    "loading": "Traitement en cours..."
+  },
+  "error": "Erreur lors de la réservation : {{message}}"
+}
+,
 "footer": {
   "brand": {
     "title": "Aljannah Address",

@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { FaPlaneDeparture } from "react-icons/fa";
 import moment from "moment";
 import { FaPlane, FaCalendarAlt } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 // Configuration de l'API pour Vite
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
@@ -68,38 +69,37 @@ const BookingPage = () => {
       setLoading(false);
     }
   };
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#07171DFF] to-[#184C58FF] text-white px-6 py-12">
       <section className="bg-gradient-to-r from-[#02171FFF] to-[#255e6d] text-white py-16">
         <div className="container mx-auto px-6 md:px-20 flex items-center justify-between gap-12">
           <div className="hidden md:block w-1/5">
-            <FaPlane className="text-6xl mx-auto text-yellow-500" />
+            <FaPlane className="text-6xl mx-auto  text-yellow-600" />
           </div>
           <div className="text-center md:text-left md:w-3/5">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 animate-slide-up">
-              Booking Your Private Jet
+            <h2 className="text-3xl md:text-5xl  font-bold mb-4 animate-slide-up">
+            {t("booking.header.title")}
             </h2>
             <p className="text-lg text-gray-300 mb-6 animate-slide-up">
-              Secure your private jet experience with us. Choose your preferred
-              jet, schedule your flight, and enjoy a seamless travel experience
-              like no other.
+              {t("booking.header.description")}
             </p>
           </div>
           <div className="hidden md:block w-1/5">
-            <FaCalendarAlt className="text-6xl mx-auto text-yellow-500" />
+            <FaCalendarAlt className="text-6xl mx-auto text-yellow-600" />
           </div>
         </div>
       </section>
 
       <div className="max-w-2xl mx-auto bg-[#132F39] rounded-lg shadow-lg p-8">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-yellow-500">
-            ✈️ Réserver votre Jet Privé
+          <h1 className="text-2xl font-bold text-gradient-aljannah">
+             {t("booking.form.title")}
           </h1>
           {jetId && (
             <span className="text-sm text-gray-300 italic">
-              Jet sélectionné : <strong>ID #{jetId}</strong>
+                {t("booking.form.selectedJet", { id: jetId })}
             </span>
           )}
         </div>
@@ -115,7 +115,7 @@ const BookingPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
-              placeholder="First Name"
+              placeholder={t("booking.form.firstName")}
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
@@ -124,7 +124,7 @@ const BookingPage = () => {
             />
             <input
               type="text"
-              placeholder="Last Name"
+              placeholder={t("booking.form.lastName")} 
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
@@ -146,7 +146,7 @@ const BookingPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
-              placeholder="Departure Location"
+              placeholder={t("booking.form.departureLocation")} 
               value={departureLocation}
               onChange={(e) => setDepartureLocation(e.target.value)}
               required
@@ -155,7 +155,7 @@ const BookingPage = () => {
             />
             <input
               type="text"
-              placeholder="Arrival Location"
+              placeholder={t("booking.form.arrivalLocation")}
               value={arrivalLocation}
               onChange={(e) => setArrivalLocation(e.target.value)}
               required
@@ -167,7 +167,7 @@ const BookingPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="date"
-              placeholder="Arrival Date"
+              placeholder={t("booking.form.arrivalDate")} 
               value={arrivalDate}
               onChange={(e) => setArrivalDate(e.target.value)}
               required
@@ -176,7 +176,7 @@ const BookingPage = () => {
             />
             <input
               type="date"
-              placeholder="Departure Date"
+              placeholder={t("booking.form.departureDate")}
               value={departureDate}
               onChange={(e) => setDepartureDate(e.target.value)}
               required
@@ -188,17 +188,17 @@ const BookingPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-yellow-500 text-black font-bold py-3 rounded-full hover:bg-yellow-600 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full btn-gradient-aljannah  text-black font-bold py-3 rounded-full hover:bg-yellow-600 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
           >
             {loading ? (
               <>
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black mr-2"></div>
-                Traitement en cours...
+          {t("booking.form.loading")}
               </>
             ) : (
               <>
                 <FaPlaneDeparture className="inline mr-2" />
-                Valider la Réservation
+    {t("booking.form.submit")}
               </>
             )}
           </button>

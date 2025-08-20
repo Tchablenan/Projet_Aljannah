@@ -4,7 +4,7 @@
 
     "booking": "Booking",
     "catalog": "Catalog",
-    "contact": "Contact Us"
+    "contact": "Contact"
   },
 "intro": {
   "welcome": "Welcome To Aljannah jet!",
@@ -77,6 +77,27 @@
     "customer": "Smiling customer service"
   }
 },
+"booking": {
+  "header": {
+    "title": "Booking Your Private Jet",
+    "description": "Secure your private jet experience with us. Choose your preferred jet, schedule your flight, and enjoy a seamless travel experience like no other."
+  },
+  "form": {
+    "title": "✈️ Book Your Private Jet",
+    "selectedJet": "Selected Jet: ID #{{id}}",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "departureLocation": "Departure Location",
+    "arrivalLocation": "Arrival Location",
+    "arrivalDate": "Arrival Date",
+    "departureDate": "Departure Date",
+    "submit": "Confirm Booking",
+    "loading": "Processing..."
+  },
+  "error": "Booking error: {{message}}"
+}
+,
 "footer": {
   "brand": {
     "title": "Aljannah Address",

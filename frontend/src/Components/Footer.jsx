@@ -13,7 +13,7 @@ const Footer = () => {
         
         {/* Branding */}
         <div className="space-y-4 text-center md:text-left">
-          <h2 className="text-2xl font-bold text-yellow-500">{t("footer.brand.title")}</h2>
+          <h2 className="text-2xl font-bold text-gradient-aljannah">{t("footer.brand.title")}</h2>
           <p className="text-sm text-gray-400">
             {t("footer.brand.tagline")}<br />
             {t("footer.brand.description")}
@@ -34,7 +34,7 @@ const Footer = () => {
         {/* Social Media */}
         <div className="space-y-4 text-center md:text-left">
           <h3 className="text-lg font-semibold text-white">{t("footer.social.title")}</h3>
-          <div className="flex justify-center md:justify-start gap-4 text-yellow-400 text-xl">
+          <div className="flex justify-center md:justify-start gap-4 text-yellow-600 text-xl">
             <a href="#" className="hover:text-white transition"><FaFacebook /></a>
             <a href="#" className="hover:text-white transition"><FaTwitter /></a>
             <a href="#" className="hover:text-white transition"><FaInstagram /></a>

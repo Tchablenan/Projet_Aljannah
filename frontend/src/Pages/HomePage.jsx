@@ -34,7 +34,7 @@ const { t } = useTranslation();
 
           {/* Contenu texte */}
           <div className="text-center md:text-left w-full md:w-1/2 space-y-6 animate__animated animate__fadeIn animate__delay-3s">
-            <h1 className="text-xl sm:text-2xl text-yellow-500 font-semibold ">
+            <h1 className="text-xl sm:text-2xl text-gradient-aljannah font-semibold ">
               {t('intro.welcome')}
             </h1>
 

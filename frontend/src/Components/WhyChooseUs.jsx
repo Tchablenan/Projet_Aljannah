@@ -12,7 +12,7 @@ const WhyChooseUs = () => {
   return (
     <section className="bg-gradient-to-r from-[#101213FF] to-[#255e6d] text-gray-900 py-16">
       <div className="container mx-auto px-6 md:px-20 text-center">
-        <h2 className="text-4xl font-extrabold text-yellow-500 mb-12">
+        <h2 className="text-4xl font-extrabold text-gradient-aljannah mb-12">
           {t("whyChooseUs.title")}
         </h2>
 

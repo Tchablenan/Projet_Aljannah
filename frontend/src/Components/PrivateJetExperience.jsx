@@ -18,7 +18,7 @@ const PrivateJetExperience = () => {
 
   return (
     <section className="relative bg-gradient-to-r from-[#101213FF] to-[#255e6d] text-white py-20 overflow-hidden" id="experience">
-      <div className="absolute top-0 right-0 w-56 h-56 bg-yellow-400 opacity-10 blur-2xl rounded-full animate__animated animate__fadeInDown animate__slow"></div>
+      <div className="absolute top-0 right-0 w-56 h-56 bg-gradient-to-r from-[#4B2E09FF] to-[#6D6825FF] opacity-10 blur-2xl rounded-full animate__animated animate__fadeInDown animate__slow"></div>
 
       <div className="container mx-auto px-6 md:px-20 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="w-full md:w-1/2" data-aos="zoom-in">
@@ -30,7 +30,7 @@ const PrivateJetExperience = () => {
         </div>
 
         <div className="w-full md:w-1/2 text-center md:text-left space-y-6" data-aos="fade-left">
-          <h2 className="text-4xl sm:text-5xl font-bold text-yellow-500 animate__animated animate__fadeInDown animate__delay-1s">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gradient-aljannah animate__animated animate__fadeInDown animate__delay-1s">
             {t("privateJetExperience.title")}
           </h2>
 
@@ -44,7 +44,7 @@ const PrivateJetExperience = () => {
 
           <a
             href="/jets"
-            className="ripple-click inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold mt-4 hover:bg-yellow-600 hover:text-white transition duration-300 hover:scale-105"
+            className="ripple-click inline-block btn-gradient-aljannah  text-black px-6 py-3 rounded-full font-semibold mt-4 hover:bg-yellow-600 hover:text-white transition duration-300 hover:scale-105"
             data-aos="fade-up"
           >
             {t("privateJetExperience.cta")}

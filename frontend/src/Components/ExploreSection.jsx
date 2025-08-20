@@ -20,7 +20,7 @@ const ExploreSection = () => {
   return (
     <section className="relative bg-gradient-to-r from-[#092C3AFF] to-[#184C58FF] py-20 overflow-hidden" id="explore">
       {/* Élément décoratif flottant */}
-      <div className="absolute top-0 left-0 w-56 h-56 bg-yellow-400 rounded-full opacity-10 blur-2xl animate__animated animate__fadeInDown animate__slow"></div>
+      <div className="absolute top-0 left-0 w-56 h-56 bg-yellow-600 rounded-full opacity-10 blur-2xl animate__animated animate__fadeInDown animate__slow"></div>
 
       <div className="container mx-auto px-6 md:px-20 space-y-20">
         {/* Bloc principal */}
@@ -40,7 +40,7 @@ const ExploreSection = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l6-6m0 0l-6-6m6 6H3" />
               </svg>
-              <h2 className="text-4xl sm:text-5xl font-bold text-yellow-500">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gradient-aljannah">
                 {t('explore.title')}
               </h2>
             </div>
