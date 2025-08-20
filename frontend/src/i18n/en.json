@@ -37,7 +37,67 @@
   "image_alt_interior": "Luxurious Jet Interior",
   "image_alt_dining": "Gourmet Dining Experience",
   "image_alt_amenities": "Premium Jet Amenities"
+},
+"privateJetExperience": {
+  "title": "The Private Jet Experience",
+  "paragraph1": "Step into a world of comfort, luxury, and exclusivity with our private jet experience. Choose your schedule, fly in total privacy, and enjoy bespoke services in a peaceful cabin.",
+  "paragraph2": "From gourmet catering to serene ambiance, every detail is crafted for your satisfaction. Our aircraft redefine travel with elegance.",
+  "cta": "Book Your Jet Experience",
+  "alt": {
+    "main": "Private Jet Cabin",
+    "interior": "Jet Interior",
+    "champagne": "Champagne Service",
+    "lounge": "Jet Lounge"
+  }
+},
+"whyChooseUs": {
+  "title": "Why Choose Us?",
+  "cards": {
+    "security": {
+      "title": "Security & Privacy",
+      "text": "Your safety and privacy are our top priorities. All our flights ensure confidentiality, with fully private cabins and dedicated security measures."
+    },
+    "schedule": {
+      "title": "Flexible Scheduling",
+      "text": "We provide fully flexible scheduling. You decide when and where you want to fly, without the constraints of commercial airlines."
+    },
+    "quality": {
+      "title": "Unmatched Quality",
+      "text": "We offer a level of service and luxury that goes beyond your expectations. From gourmet catering to personalized flight experiences."
+    },
+    "customer": {
+      "title": "Customer-Centric Approach",
+      "text": "Our team is dedicated to providing personalized service tailored to your needs. We are here to ensure every part of your journey exceeds expectations."
+    }
+  },
+  "alt": {
+    "interior": "Interior of private jet",
+    "schedule": "Flexible schedule",
+    "quality": "Luxury service",
+    "customer": "Smiling customer service"
+  }
+},
+"footer": {
+  "brand": {
+    "title": "Aljannah Address",
+    "tagline": "Prestige. Privacy. Performance. ✈️",
+    "description": "Your gateway to luxury aviation."
+  },
+  "links": {
+    "title": "Quick Links",
+    "jets": "Our Jets",
+    "about": "About Us",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "social": {
+    "title": "Follow Us"
+  },
+  "copyright": "All rights reserved."
 }
+
+
+
 
 
 

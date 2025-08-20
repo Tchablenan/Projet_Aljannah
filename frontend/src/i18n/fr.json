@@ -37,6 +37,67 @@
   "image_alt_dining": "Expérience gastronomique à bord",
   "image_alt_amenities": "Services premium à bord"
 }
+,
+"privateJetExperience": {
+  "title": "L'Expérience Jet Privé",
+  "paragraph1": "Plongez dans un monde de confort, de luxe et d'exclusivité avec notre expérience en jet privé. Choisissez votre horaire, volez en toute intimité et profitez de services sur mesure dans une cabine paisible.",
+  "paragraph2": "De la gastronomie raffinée à l’ambiance sereine, chaque détail est pensé pour votre satisfaction. Nos avions redéfinissent le voyage avec élégance.",
+  "cta": "Réservez votre expérience Jet",
+  "alt": {
+    "main": "Cabine de Jet Privé",
+    "interior": "Intérieur du Jet",
+    "champagne": "Service de Champagne",
+    "lounge": "Salon du Jet"
+  }
+}
+,
+
+
+"whyChooseUs": {
+  "title": "Pourquoi Nous Choisir ?",
+  "cards": {
+    "security": {
+      "title": "Sécurité & Confidentialité",
+      "text": "Votre sécurité et votre vie privée sont nos priorités. Tous nos vols garantissent la confidentialité, avec des cabines entièrement privées et des mesures de sécurité dédiées."
+    },
+    "schedule": {
+      "title": "Horaires Flexibles",
+      "text": "Nous offrons une planification totalement flexible. Vous décidez quand et où vous voulez voler, sans les contraintes des compagnies aériennes commerciales."
+    },
+    "quality": {
+      "title": "Qualité Inégalée",
+      "text": "Nous offrons un niveau de service et de luxe qui dépasse vos attentes. De la gastronomie raffinée aux expériences de vol personnalisées."
+    },
+    "customer": {
+      "title": "Approche Centrée Client",
+      "text": "Notre équipe est dédiée à fournir un service personnalisé adapté à vos besoins. Nous veillons à ce que chaque étape de votre voyage dépasse vos attentes."
+    }
+  },
+  "alt": {
+    "interior": "Intérieur du jet privé",
+    "schedule": "Horaire flexible",
+    "quality": "Service de luxe",
+    "customer": "Service client souriant"
+  }
+},
+"footer": {
+  "brand": {
+    "title": "Aljannah Address",
+    "tagline": "Prestige. Confidentialité. Performance. ✈️",
+    "description": "Votre passerelle vers l’aviation de luxe."
+  },
+  "links": {
+    "title": "Liens Rapides",
+    "jets": "Nos Jets",
+    "about": "À Propos",
+    "experience": "Expérience",
+    "contact": "Contact"
+  },
+  "social": {
+    "title": "Suivez-nous"
+  },
+  "copyright": "Tous droits réservés."
+}
 
 
 
