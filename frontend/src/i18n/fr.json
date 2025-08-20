@@ -119,7 +119,32 @@
   },
   "copyright": "Tous droits réservés."
 }
+,
+"jets": {
+  "title": "Nos Jets Disponibles",
+  "subtitle": "Découvrez notre large sélection de jets privés disponibles pour votre prochain vol de luxe.",
+  "loading": "Chargement des jets...",
+  "empty": "Aucun jet disponible pour le moment.",
+  "emptyHint": "Vérifiez que votre base de données contient des jets.",
+  "error": {
+    "title": "Erreur",
+    "default": "Une erreur est survenue lors du chargement des jets.",
+    "fetch": "Impossible de se connecter au serveur. Vérifiez que Laravel est démarré sur http://127.0.0.1:8000",
+    "cors": "Erreur CORS : Le serveur bloque la requête cross-origin.",
+    "notFound": "L'endpoint /api/jets est introuvable (404).",
+    "server": "Erreur serveur interne (500) – Vérifiez les logs Laravel.",
+    "json": "Le serveur ne retourne pas du JSON valide.",
+    "retry": "Réessayer",
+    "debug": "Console Debug"
+  }
+}
+,
+"jetdetails":{
+  "title": "C'est parti !!",
+  "content":"Réservez ce magnifique jet dès maintenant et vivez une expérience inoubliable.",
+  "bouton": "reservez ce jet"
 
+}
 
 
 }

@@ -16,41 +16,51 @@ const HomePage = () => {
   
 const { t } = useTranslation();
 
+
   return (
     <div className="bg-gray-100 min-h-screen ">
       {/* Section d'introduction avec dégradé de bleu */}
-      <section className="relative bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white px-4 sm:px-6 md:px-20 py-50 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-
-        <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10 max-w-7xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
-          {/* Image avion */}
-          <div className="w-full md:w-1/2 flex justify-center">
-            <img
-              src={heroPlane}
-              alt="Private Jet"
-              className="w-full max-w-[320px] sm:max-w-[450px] h-auto animate-float "
-            />
-          </div>
-
-          {/* Contenu texte */}
-          <div className="text-center md:text-left w-full md:w-1/2 space-y-6 animate__animated animate__fadeIn animate__delay-3s">
-            <h1 className="text-xl sm:text-2xl text-gradient-aljannah font-semibold ">
-              {t('intro.welcome')}
-            </h1>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
-              {t('intro.title')}
-              <br className="hidden sm:block" /> {t('intro.subtitle')}
-            </h1>
-
-            <p className="text-gray-200 text-justify text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0">
-              {t('intro.description')}
-            </p>
-
-          
-          </div>
-        </div>
-      </section>
+     <section className="relative bg-gradient-to-r from-[#1b4f61] to-[#255e6d] text-white px-4 sm:px-6 md:px-20 py-50 overflow-hidden hero-section">
+  {/* Éléments animés en arrière-plan */}
+  <div className="floating-particles">
+    <div className="particle particle-1"></div>
+    <div className="particle particle-2"></div>
+    <div className="particle particle-3"></div>
+  </div>
+  
+  <div className="absolute inset-0 bg-black opacity-50 z-0 parallax-overlay"></div>
+  
+  <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10 max-w-7xl mx-auto animate__animated animate__fadeInUp animate__delay-1s hero-content">
+    
+    {/* Image avion */}
+    <div className="w-full md:w-1/2 flex justify-center image-wrapper">
+      <div className="plane-container">
+        <img
+          src={heroPlane}
+          alt="Private Jet"
+          className="w-full max-w-[320px] sm:max-w-[450px] h-auto animate-float plane-image"
+        />
+        <div className="plane-glow"></div>
+        <div className="plane-shadow"></div>
+      </div>
+    </div>
+    
+    {/* Contenu texte */}
+    <div className="text-center md:text-left w-full md:w-1/2 space-y-6 animate__animated animate__fadeIn animate__delay-3s text-content">
+      <h1 className="text-xl sm:text-2xl text-gradient-aljannah font-semibold welcome-text">
+        {t('intro.welcome')}
+      </h1>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug main-title">
+        {t('intro.title')}
+        <br className="hidden sm:block" /> 
+        <span className="subtitle-gradient">{t('intro.subtitle')}</span>
+      </h1>
+      <p className="text-gray-200 text-justify text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0 description-text">
+        {t('intro.description')}
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* Section "About Us" */}
       <div ></div>

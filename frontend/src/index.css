@@ -677,3 +677,216 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.hero-section {
+  background: linear-gradient(-45deg, #1b4f61, #255e6d, #2d6a7a, #1b4f61);
+  background-size: 400% 400%;
+  animation: gradientAnimation 8s ease infinite;
+  position: relative;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particules flottantes */
+.floating-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: floatParticle 12s ease-in-out infinite;
+}
+
+.particle-1 {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  width: 40px;
+  height: 40px;
+  top: 70%;
+  right: 15%;
+  animation-delay: -4s;
+}
+
+.particle-3 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -8s;
+}
+
+@keyframes floatParticle {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-15px); }
+  75% { transform: translateY(-30px) translateX(5px); }
+}
+
+/* Amélioration de l'overlay */
+.parallax-overlay {
+  transition: all 0.3s ease;
+}
+
+.hero-section:hover .parallax-overlay {
+  opacity: 0.3;
+}
+
+/* Animation de l'avion améliorée */
+.plane-container {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.plane-container:hover {
+  transform: scale(1.05);
+}
+
+.plane-image {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+}
+
+.plane-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.plane-shadow {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%);
+  transform: translateX(-50%);
+  animation: shadowFloat 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes shadowFloat {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.1; }
+}
+
+/* Amélioration du texte */
+.welcome-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.main-title {
+  animation: titleSlideIn 1s ease-out 0.5s both;
+}
+
+.subtitle-gradient {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6, #1d4ed8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientText 4s ease infinite;
+}
+
+@keyframes titleSlideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.description-text {
+  animation: fadeInUp 1s ease-out 1s both;
+  position: relative;
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Animation float améliorée */
+@keyframes animate-float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(1deg); 
+  }
+  75% { 
+    transform: translateY(-5px) rotate(-0.5deg); 
+  }
+}
+
+.animate-float {
+  animation: animate-float 6s ease-in-out infinite;
+}
+
+/* Responsive amélioré */
+@media (max-width: 768px) {
+  .particle { display: none; }
+  .plane-glow { width: 100%; height: 100%; }
+  .hero-content { padding: 2rem 0; }
+}

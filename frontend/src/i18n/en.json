@@ -115,6 +115,30 @@
     "title": "Follow Us"
   },
   "copyright": "All rights reserved."
+},
+"jets": {
+  "title": "Our Available Jets",
+  "subtitle": "Explore our wide selection of private jets available for your next luxury flight.",
+  "loading": "Loading jets...",
+  "empty": "No jets available at the moment.",
+  "emptyHint": "Make sure your database contains jet entries.",
+  "error": {
+    "title": "Error",
+    "default": "An error occurred while loading jets.",
+    "fetch": "Cannot connect to the server. Make sure Laravel is running at http://127.0.0.1:8000",
+    "cors": "CORS error: The server is blocking the cross-origin request.",
+    "notFound": "The endpoint /api/jets was not found (404).",
+    "server": "Internal server error (500) – Check Laravel logs.",
+    "json": "The server did not return valid JSON.",
+    "retry": "Retry",
+    "debug": "Debug Console"
+  }
+},
+"jetdetails":{
+  "title":"✈️ Here we go!!",
+  "content":"Book this beautiful jet now and enjoy an unforgettable experience.",
+  "bouton":"Book your jet"
+
 }
 
 

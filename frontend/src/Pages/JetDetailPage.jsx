@@ -14,6 +14,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "animate.css";
 import { getJetById } from "../services/jetApiService";
+import { useTranslation } from "react-i18next";
 
 const JetDetails = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const JetDetails = () => {
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-
+ const { t } = useTranslation();
   useEffect(() => {
     AOS.init({ 
       duration: 800, 
@@ -151,7 +152,11 @@ const JetDetails = () => {
   const allImages = [imageUrl, ...otherImages].filter(Boolean);
   const currentImage = selectedImage || imageUrl;
 
+
+
+
   return (
+    
     <div className="bg-gradient-to-r from-[#07171DFF] to-[#255e6d] min-h-screen text-white">
       {/* Navigation */}
       <div className="px-6 md:px-20 py-6">
@@ -274,15 +279,15 @@ const JetDetails = () => {
           {/* Section réservation */}
           <div className="text-center" data-aos="fade-up" data-aos-delay="300">
             <div className="bg-gradient-to-r from-green-600 to-green-700 p-8 rounded-xl shadow-2xl inline-block">
-              <h3 className="text-2xl font-bold mb-4">Prêt à voler ?</h3>
+              <h3 className="text-2xl font-bold mb-4">{t("jetdetails.title")}</h3>
               <p className="text-green-100 mb-6">
-                Réservez ce magnifique jet dès maintenant et vivez une expérience inoubliable.
+               {t("jetdetails.content")}
               </p>
               <button
                 onClick={() => setShowModal(true)}
                 className="bg-white text-green-700 font-bold py-4 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 text-lg flex items-center gap-2 mx-auto animate__animated animate__pulse animate__infinite"
               >
-                ✈️ Réserver ce Jet
+                ✈️ {t("jetdetails.bouton")}
               </button>
             </div>
           </div>
