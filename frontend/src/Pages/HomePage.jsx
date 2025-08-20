@@ -53,7 +53,8 @@ const { t } = useTranslation();
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug main-title">
         {t('intro.title')}
         <br className="hidden sm:block" /> 
-        <span className="subtitle-gradient">{t('intro.subtitle')}</span>
+        <span className="  background-clip: text;
+">{t('intro.subtitle')}</span>
       </h1>
       <p className="text-gray-200 text-justify text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0 description-text">
         {t('intro.description')}

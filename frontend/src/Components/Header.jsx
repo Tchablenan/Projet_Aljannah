@@ -5,7 +5,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import logo from "../assets/ALJANNAH JET OFFICIAL LOGO c.jpg";
+import logo from "../assets/aljannah.jpg";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
