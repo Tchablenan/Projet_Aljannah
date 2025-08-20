@@ -4,9 +4,9 @@ import { FaPlaneDeparture } from "react-icons/fa";
 import moment from "moment";
 import { FaPlane, FaCalendarAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-
+import { createReservation } from "../services/reservationsApiService";
 // Configuration de l'API pour Vite
-const API_BASE_URL = import.meta.env.VITE_BASE_API_URL || 'http://localhost:8000/api';
+
 
 const BookingPage = () => {
   const navigate = useNavigate();
@@ -52,22 +52,9 @@ const BookingPage = () => {
     };
 
     try {
-      console.log('Sending booking to:', `${API_BASE_URL}/reservations`);
       
-      const response = await fetch(`${API_BASE_URL}/reservations`, {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Erreur HTTP: ${response.status}`);
-      }
-
-      const result = await response.json();
+      
+      const result = await createReservation(data);
       console.log('Booking success:', result);
       navigate("/confirmation");
       
