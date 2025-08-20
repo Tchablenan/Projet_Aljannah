@@ -6,7 +6,7 @@ import { FaPlane, FaCalendarAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 // Configuration de l'API pour Vite
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_BASE_API_URL || 'http://localhost:8000/api';
 
 const BookingPage = () => {
   const navigate = useNavigate();
