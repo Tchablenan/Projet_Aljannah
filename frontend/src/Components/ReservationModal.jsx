@@ -180,7 +180,7 @@ export default function ReservationModal({ jet, onClose }) {
             </div>
             {jet?.capacite && (
               <p className="text-xs text-gray-400 mt-1">
-                Capacité max de ce jet : {jet.capacite} passagers
+                Capacité max de ce jet est : {jet.capacite} passagers
               </p>
             )}
           </label>
