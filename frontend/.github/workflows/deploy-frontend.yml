@@ -1,0 +1,45 @@
+name: Deploy Frontend (Vite) to Hostinger
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Récupère ton code
+      - uses: actions/checkout@v4
+
+      # Se place dans le dossier frontend
+      - name: Use frontend directory
+        run: cd frontend
+
+      # Installe Node
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Installe les dépendances dans le dossier frontend
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      # Génère le build de Vite (dist/)
+      - name: Build Vite project
+        working-directory: ./frontend
+        run: npm run build
+
+      # Déploie le dossier dist sur ton Hostinger
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./frontend/dist/
+          server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/node_modules/**
