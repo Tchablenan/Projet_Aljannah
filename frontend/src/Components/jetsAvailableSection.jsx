@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import JetCard from './jetCard';
 import { FaPlane, FaSuitcase, FaRocket } from 'react-icons/fa';
-import { getJets } from '../services/jetApiService';
+import jetService from '../services/jetService'
 
 const JetsAvailableSection = () => {
   const { t } = useTranslation();
@@ -16,8 +16,10 @@ const JetsAvailableSection = () => {
       try {
         setLoading(true);
         setError(null);
-
-        const jetsData = await getJets();
+        
+        const response = await jetService.getJets();
+        const jetsData = response.data || []; // Récupérer response.data
+        
         setJets(Array.isArray(jetsData) ? jetsData : []);
         setIsVisible(true);
       } catch (error) {
@@ -25,18 +27,18 @@ const JetsAvailableSection = () => {
 
         let errorMessage = t("jets.error.default");
 
-        if (error.message.includes('Failed to fetch')) {
+        if (error.message?.includes('Failed to fetch')) {
           errorMessage = t("jets.error.fetch");
-        } else if (error.message.includes('CORS')) {
+        } else if (error.message?.includes('CORS')) {
           errorMessage = t("jets.error.cors");
-        } else if (error.status === 404) {
+        } else if (error.response?.status === 404) {
           errorMessage = t("jets.error.notFound");
-        } else if (error.status === 500) {
+        } else if (error.response?.status === 500) {
           errorMessage = t("jets.error.server");
-        } else if (error.message.includes('Expected JSON')) {
+        } else if (error.message?.includes('Expected JSON')) {
           errorMessage = t("jets.error.json");
         } else {
-          errorMessage = error.message;
+          errorMessage = error.message || 'Erreur inconnue';
         }
 
         setError(errorMessage);
@@ -46,7 +48,7 @@ const JetsAvailableSection = () => {
     };
 
     fetchJets();
-  }, []);
+  }, [t]);
 
   const handleRetry = () => {
     window.location.reload();

@@ -13,7 +13,7 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "animate.css";
-import { getJetById } from "../services/jetApiService";
+import jetService from "../services/jetService";
 import { useTranslation } from "react-i18next";
 
 const JetDetails = () => {
@@ -37,7 +37,6 @@ const JetDetails = () => {
 
     loadJetDetails();
     
-    // Animation d'entrée progressive
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, [id]);
@@ -47,7 +46,7 @@ const JetDetails = () => {
       setLoading(true);
       setError(null);
       
-      const jetData = await getJetById(id);
+      const jetData = await jetService.getJetById(id); // ✅ CORRECTION ICI
       setJet(jetData);
       
       if (jetData?.image_url) {
@@ -59,11 +58,11 @@ const JetDetails = () => {
       
       let errorMessage = "Impossible de charger les détails de ce jet";
       
-      if (error.message.includes('404')) {
+      if (error.response?.status === 404) {
         errorMessage = "Ce jet n'existe pas ou a été supprimé";
-      } else if (error.message.includes('Failed to fetch')) {
+      } else if (error.message?.includes('Failed to fetch')) {
         errorMessage = "Erreur de connexion au serveur";
-      } else if (error.message.includes('500')) {
+      } else if (error.response?.status === 500) {
         errorMessage = "Erreur du serveur, veuillez réessayer plus tard";
       }
       

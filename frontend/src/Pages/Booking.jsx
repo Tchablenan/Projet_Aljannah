@@ -4,7 +4,8 @@ import { FaPlaneDeparture } from "react-icons/fa";
 import moment from "moment";
 import { FaPlane, FaCalendarAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { createReservation } from "../services/reservationsApiService";
+import  reservationService from "../services/reservationService.js";
+import jetService from "../services/jetService";
 // Configuration de l'API pour Vite
 
 
@@ -14,14 +15,18 @@ const BookingPage = () => {
   const searchParams = new URLSearchParams(location.search);
   const jetId = searchParams.get("jet_id");
   const { t } = useTranslation();
-
+  const [jets, setJets] = useState([]); // ← AJOUTÉ
+  const [selectedJetId, setSelectedJetId] = useState(jetId || ""); 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [departureLocation, setDepartureLocation] = useState("");
   const [arrivalLocation, setArrivalLocation] = useState("");
   const [arrivalDate, setArrivalDate] = useState("");
   const [departureDate, setDepartureDate] = useState("");
+  const [passengers, setPassengers] = useState(1); // ✅ AJOUTÉ
+  const [message, setMessage] = useState(""); // ✅ AJOUTÉ
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [focusedField, setFocusedField] = useState(null);
@@ -30,41 +35,96 @@ const BookingPage = () => {
   useEffect(() => {
     // Animation d'entrée
     const timer = setTimeout(() => setIsVisible(true), 100);
+    loadJets(); 
     return () => clearTimeout(timer);
   }, []);
 
+   // ← NOUVELLE FONCTION
+  const loadJets = async () => {
+    try {
+      const response = await jetService.getJets();
+      setJets(response.data || []);
+    } catch (error) {
+      console.error("Erreur chargement jets:", error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+      console.log("🚀 Début de la soumission");
     setLoading(true);
     setError("");
 
-    const data = {
-      jet_id: jetId ?? null,
+    const reservationData = {
       firstName,
       lastName,
       email,
+      phone,
       departureLocation,
       arrivalLocation,
-      planeType: "Private Jet",
-      arrivalDate: moment(arrivalDate, "YYYY-MM-DD").format("YYYY-MM-DD"),
-      departureDate: moment(departureDate, "YYYY-MM-DD").format("YYYY-MM-DD"),
-      passengers: 1,
+      departureDate: moment(departureDate).format("YYYY-MM-DD"),
+      arrivalDate: moment(arrivalDate).format("YYYY-MM-DD"),
+      passengers,
+      jetId: selectedJetId || null,
+      message
     };
+    console.log("📝 Données à envoyer:", reservationData);
+     // ✅ VALIDATION CÔTÉ CLIENT
+    const payload = reservationService.formatReservationData(reservationData);
+    const validation = reservationService.validateReservationData(payload);
+    
+    if (!validation.isValid) {
+      console.warn("⚠️ Erreurs de validation:", validation.errors);
+      setError(Object.values(validation.errors).join(', '));
+      setLoading(false);
+      return;
+    }
 
     try {
+      console.log("📡 Envoi de la requête API...");
+      const result = await reservationService.createReservation(reservationData);
       
-      
-      const result = await createReservation(data);
       console.log('Booking success:', result);
-      navigate("/confirmation");
+      
+      // ✅ NAVIGUER AVEC LES DONNÉES DE LA RÉSERVATION
+      navigate("/confirmation", { 
+        state: { 
+          reservation: result.data,
+          reference: result.data.reference
+        } 
+      });
       
     } catch (err) {
       console.error("Erreur création :", err);
-      setError(`Erreur lors de la réservation: ${err.message}`);
+      console.error("💥 Erreur complète:", err);
+      console.error("💥 Erreur response:", err.response);
+      console.error("💥 Erreur data:", err.response?.data);
+      
+      // ✅ GESTION DES ERREURS AMÉLIORÉE
+      if (err.type === 'validation') {
+        setError(err.message);
+      } else if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else {
+        setError(`Erreur lors de la réservation: ${err.message || 'Erreur inconnue'}`);
+      }
     } finally {
+      console.log("🏁 Fin de la soumission");
       setLoading(false);
     }
   };
+
+  // en haut du composant
+
+useEffect(() => {
+  const prefill = location.state?.prefill;
+  if (prefill) {
+    setDepartureDate(prefill.departureDate || "");
+    setArrivalDate(prefill.arrivalDate || "");
+    setPassengers(prefill.passengers || 1);
+  }
+}, [location.state]);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#07171DFF] to-[#184C58FF] text-white px-6 py-12 relative overflow-hidden">
@@ -208,22 +268,55 @@ const BookingPage = () => {
             </div>
           </div>
 
-          {/* Email */}
+
+          {/* Email & Téléphone */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="relative group">
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onFocus={() => setFocusedField('email')}
+                onBlur={() => setFocusedField(null)}
+                required
+                disabled={loading}
+                className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
+              />
+            </div>
+
+            <div className="relative group">
+              <input
+                type="tel"
+                placeholder={t("booking.form.phone") || "Téléphone"}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                onFocus={() => setFocusedField('phone')}
+                onBlur={() => setFocusedField(null)}
+                disabled={loading}
+                className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
+              />
+            </div>
+          </div>
+
           <div className="relative group">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onFocus={() => setFocusedField('email')}
-              onBlur={() => setFocusedField(null)}
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Sélectionner un jet {selectedJetId && `(Jet #${selectedJetId})`}
+            </label>
+            <select
+              value={selectedJetId}
+              onChange={(e) => setSelectedJetId(e.target.value)}
               required
               disabled={loading}
-              className="w-full px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
-            />
-            <div className={`absolute inset-0 rounded bg-gradient-to-r from-yellow-400/20 to-blue-400/20 transition-opacity duration-300 pointer-events-none ${
-              focusedField === 'email' ? 'opacity-100' : 'opacity-0'
-            }`}></div>
+              className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
+            >
+              <option value="">-- Choisissez un jet --</option>
+              {jets.map((jet) => (
+                <option key={jet.id} value={jet.id}>
+                  {jet.nom} - {jet.modele} ({jet.capacite} pers.) - ${jet.prix}
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* Lieux */}
@@ -255,6 +348,7 @@ const BookingPage = () => {
                 onBlur={() => setFocusedField(null)}
                 required
                 disabled={loading}
+                
                 className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
               />
               <div className={`absolute inset-0 rounded bg-gradient-to-r from-yellow-400/20 to-blue-400/20 transition-opacity duration-300 pointer-events-none ${
@@ -275,6 +369,7 @@ const BookingPage = () => {
                 onBlur={() => setFocusedField(null)}
                 required
                 disabled={loading}
+                min={departureDate || moment().format('YYYY-MM-DD')}
                 className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
               />
               <div className={`absolute inset-0 rounded bg-gradient-to-r from-yellow-400/20 to-blue-400/20 transition-opacity duration-300 pointer-events-none ${
@@ -292,12 +387,38 @@ const BookingPage = () => {
                 onBlur={() => setFocusedField(null)}
                 required
                 disabled={loading}
+                min={moment().format('YYYY-MM-DD')}
                 className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
               />
               <div className={`absolute inset-0 rounded bg-gradient-to-r from-yellow-400/20 to-blue-400/20 transition-opacity duration-300 pointer-events-none ${
                 focusedField === 'departureDate' ? 'opacity-100' : 'opacity-0'
               }`}></div>
             </div>
+          </div>
+          {/* ✅ AJOUT : Nombre de passagers */}
+          <div className="relative group">
+            <input
+              type="number"
+              placeholder={t("booking.form.passengers") || "Nombre de passagers"}
+              value={passengers}
+              onChange={(e) => setPassengers(parseInt(e.target.value) || 1)}
+              required
+              min="1"
+              max="50"
+              disabled={loading}
+              className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 focus:scale-105 hover:bg-gray-600"
+            />
+          </div>
+          {/* ✅ AJOUT : Message optionnel */}
+          <div className="relative group">
+            <textarea
+              placeholder={t("booking.form.message") || "Message (optionnel)"}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              disabled={loading}
+              rows="3"
+              className="px-4 py-2 rounded bg-gray-700 text-white disabled:opacity-50 w-full transition-all duration-300 border-2 border-transparent focus:border-yellow-400 focus:bg-gray-600 hover:bg-gray-600 resize-none"
+            />
           </div>
 
           {/* Bouton submit premium */}
