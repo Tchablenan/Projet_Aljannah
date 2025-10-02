@@ -1,0 +1,41 @@
+name: Deploy Frontend (Vite) to Hostinger
+
+on:
+  push:
+    branches: [ main ]   # change si ta branche par défaut ≠ main
+  workflow_dispatch:      # permet "Run workflow" à la main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Write .env.production
+        working-directory: ./frontend
+        run: echo "VITE_API_URL=${{ secrets.FRONTEND_API_URL }}" > .env.production
+
+      - name: Build
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./frontend/dist/
+          server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/node_modules/**
