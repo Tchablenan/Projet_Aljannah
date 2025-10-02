@@ -286,7 +286,7 @@ export default function Header() {
 
         .animate-fadeInUp {
           opacity: 0;
-          animation: fadeInUp 0.6s ease-out forwards;
+          animation: fadeInUp 0.7s ease-out forwards;
         }
 
         /* Effet de ripple pour les clics */
