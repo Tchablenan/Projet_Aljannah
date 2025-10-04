@@ -22,7 +22,7 @@ jobs:
 
       - name: Write .env.production
         working-directory: ./frontend
-        run: echo "VITE_API_URL=${{ secrets.FRONTEND_API_URL }}" > .env.production  cat .env.production
+        run: echo "VITE_API_URL=${{ secrets.FRONTEND_API_URL }}" > .env.production  
 
       - name: Build
         working-directory: ./frontend
